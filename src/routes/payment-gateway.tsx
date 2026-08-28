@@ -215,6 +215,91 @@ return Response.redirect(checkout_url, 303);`}</code>
       </Section>
 
       <Section tone="soft">
+        <SectionHeading
+          eyebrow="Security & Compliance"
+          title="Built to bank-grade standards"
+          description="Card data never touches your servers. Every transaction is tokenised, encrypted in transit and screened before capture."
+        />
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          {COMPLIANCE.map((c) => (
+            <div key={c.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <span className="flex size-11 items-center justify-center rounded-xl bg-accent text-primary">
+                <c.icon className="size-5" aria-hidden="true" />
+              </span>
+              <h3 className="mt-4 text-lg font-bold">{c.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.description}</p>
+              <ul className="mt-4 space-y-2">
+                {c.points.map((p) => (
+                  <li key={p} className="flex gap-2 text-sm text-muted-foreground">
+                    <Check className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeading
+          eyebrow="Platform Integrations"
+          title="Already works with the tools you run"
+          description="Official plugins and SDKs keep your existing stack in place — no re-platforming required."
+        />
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {PLUGINS.map((p) => (
+            <div key={p.name} className="rounded-2xl border border-border bg-card p-5 shadow-card">
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="text-base font-bold">{p.name}</h3>
+                <span className="rounded-full bg-accent px-2.5 py-1 text-xs font-semibold text-primary">
+                  {p.type}
+                </span>
+              </div>
+              <p className="mt-2 text-sm text-muted-foreground">{p.detail}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="navy">
+        <SectionHeading
+          eyebrow="Platform Performance"
+          title="Numbers our merchants see every month"
+          description="Figures from our production gateway across the last 90 days of merchant traffic."
+          light
+        />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {STATS.map((s) => (
+            <StatCard key={s.label} {...s} />
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeading
+          eyebrow="Case Study"
+          title="Angkor Mart Online: 41% fewer failed checkouts"
+          align="left"
+        />
+        <div className="mt-10 grid gap-8 lg:grid-cols-3">
+          {CASE_STUDY.map((c) => (
+            <div key={c.heading} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <p className="text-xs font-semibold uppercase tracking-widest text-primary">
+                {c.heading}
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="soft">
+        <SectionHeading eyebrow="Merchant Feedback" title="Trusted by teams processing daily" />
+        <TestimonialCarousel />
+      </Section>
+
+      <Section>
         <SectionHeading eyebrow="FAQ" title="Payment gateway questions, answered" />
         <Faq items={FAQS} />
       </Section>
