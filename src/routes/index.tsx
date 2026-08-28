@@ -20,7 +20,43 @@ import { FeatureCard, StatCard, StepCard } from "@/components/site/Cards";
 import { TestimonialCarousel } from "@/components/site/Testimonials";
 import { LogoStrip } from "@/components/site/LogoStrip";
 import { CTABanner } from "@/components/site/CTABanner";
+import { Faq } from "@/components/site/Faq";
 import { BLOG_POSTS } from "@/lib/site";
+
+const INDUSTRIES = [
+  { name: "Retail & Fashion", detail: "Variant-level stock, seasonal pricing and store credit across every branch." },
+  { name: "Restaurants & Cafés", detail: "Table plans, kitchen tickets, split bills and offline service when the line drops." },
+  { name: "Pharmacies", detail: "Batch and expiry tracking, prescription records and controlled-item audit trails." },
+  { name: "Supermarkets", detail: "Weighing-scale integration, fast lane checkout and supplier purchase orders." },
+  { name: "E-commerce", detail: "Wallet and card checkout, stock sync with the shop floor and automated receipts." },
+  { name: "Services & B2B", detail: "Invoice-style payment links, recurring billing and quote-to-payment workflows." },
+];
+
+const ASSURANCES = [
+  { metric: "99.9%", title: "Platform uptime", detail: "Measured monthly across gateway and POS cloud services, with published incident reports." },
+  { metric: "< 15 min", title: "Support response", detail: "First human response on critical issues, 24 hours a day, by phone or WhatsApp." },
+  { metric: "T+1", title: "Settlement", detail: "Next-business-day payouts to your bank account, with a reconciliation file for every batch." },
+  { metric: "0", title: "Lock-in clauses", detail: "Export your data and walk away at any time. Nothing we build is held hostage." },
+];
+
+const HOME_FAQS = [
+  {
+    q: "Do we have to buy all three services together?",
+    a: "No. Most clients start with one — usually the POS or the gateway — and add the others later. When you do combine them, the systems share data and the bundled price is lower than buying each separately.",
+  },
+  {
+    q: "How quickly can we start accepting payments?",
+    a: "A hosted checkout can be live in two to four working days once your merchant documents are approved. Full custom API integrations typically take one to two weeks including testing on our sandbox.",
+  },
+  {
+    q: "What does support actually cover?",
+    a: "Configuration changes, transaction and settlement queries, hardware faults, staff training refreshers and software updates. It's included with every rental and with the first year of any purchase.",
+  },
+  {
+    q: "Do you work outside Phnom Penh?",
+    a: "Yes. We install and support clients across Cambodia and Bangladesh. Remote setup and training work well for most software-only deployments, and we travel for multi-branch hardware rollouts.",
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
