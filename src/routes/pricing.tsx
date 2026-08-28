@@ -206,6 +206,112 @@ function Pricing() {
         </div>
       </Section>
 
+      <Section tone="soft" id="compare">
+        <SectionHeading
+          eyebrow="Compare"
+          title="What's included in every plan"
+          description="A line-by-line look at commercials, setup, features and support across POS rental, POS purchase, payment gateway and website projects."
+        />
+        <div className="mt-12 overflow-x-auto rounded-2xl border border-border bg-card shadow-card">
+          <table className="w-full min-w-[760px] border-collapse text-left text-sm">
+            <caption className="sr-only">
+              Feature comparison across Fastpay POS rental, POS purchase, payment gateway and
+              website plans
+            </caption>
+            <thead>
+              <tr className="bg-surface">
+                <th scope="col" className="px-6 py-4 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
+                  Feature
+                </th>
+                {COMPARE_PLANS.map((p) => (
+                  <th
+                    key={p}
+                    scope="col"
+                    className="px-6 py-4 text-center text-xs font-semibold tracking-wider text-primary uppercase"
+                  >
+                    {p}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {COMPARE_GROUPS.map((g) => (
+                <>
+                  <tr key={g.group} className="border-t border-border bg-accent/40">
+                    <th
+                      scope="colgroup"
+                      colSpan={COMPARE_PLANS.length + 1}
+                      className="px-6 py-3 text-xs font-bold tracking-wider text-foreground uppercase"
+                    >
+                      {g.group}
+                    </th>
+                  </tr>
+                  {g.rows.map((r) => (
+                    <tr key={r.feature} className="border-t border-border">
+                      <th scope="row" className="px-6 py-4 font-medium text-foreground">
+                        {r.feature}
+                      </th>
+                      {r.values.map((v, i) => (
+                        <td key={`${r.feature}-${COMPARE_PLANS[i]}`} className="px-6 py-4 text-center">
+                          {typeof v === "string" ? (
+                            <span className="text-muted-foreground">{v}</span>
+                          ) : v ? (
+                            <>
+                              <Check className="mx-auto size-5 text-primary" aria-hidden="true" />
+                              <span className="sr-only">Included</span>
+                            </>
+                          ) : (
+                            <>
+                              <Minus
+                                className="mx-auto size-5 text-muted-foreground/50"
+                                aria-hidden="true"
+                              />
+                              <span className="sr-only">Not included</span>
+                            </>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <Button asChild variant="hero" size="xl">
+            <Link to="/contact">Start Your Order</Link>
+          </Button>
+          <Button asChild variant="outlineBrand" size="xl">
+            <a href={COMPANY.phoneHref}>
+              <Phone className="size-4" aria-hidden="true" />
+              Speak to a Specialist
+            </a>
+          </Button>
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeading
+          eyebrow="Terms"
+          title="Contract & implementation terms"
+          description="No surprises after signature — here is exactly how contracts, billing, delivery and exit work at Fastpay."
+        />
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {TERMS.map((t) => (
+            <div key={t.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <span className="flex size-11 items-center justify-center rounded-xl bg-accent text-primary">
+                <t.icon className="size-5" aria-hidden="true" />
+              </span>
+              <h3 className="mt-4 text-lg font-bold">{t.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.description}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+
+
       <section className="px-6 pb-6">
         <div className="mx-auto max-w-7xl rounded-3xl bg-gradient-hero px-8 py-12 text-center text-navy-foreground shadow-lift md:px-16">
           <h2 className="text-2xl font-extrabold md:text-3xl">Need a Custom Package?</h2>
