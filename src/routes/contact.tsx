@@ -17,7 +17,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Call +855 078514425, email fastpay.tech@gmail.com or send us a message. Fastpay IT Solution Ltd replies within one business day.",
+          "Call +880 1785-514425, email fastpay.tech@gmail.com or send us a message. Fastpay IT Solution Ltd replies within one business day.",
       },
       { property: "og:title", content: "Contact Fastpay IT Solution Ltd" },
       {
@@ -92,7 +92,7 @@ function Contact() {
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="grid gap-2">
                   <Label htmlFor="phone">Phone</Label>
-                  <Input id="phone" name="phone" type="tel" placeholder="+855 ..." />
+                  <Input id="phone" name="phone" type="tel" placeholder="+880 17XX-XXXXXX" />
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="subject">Subject *</Label>

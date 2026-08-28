@@ -40,7 +40,7 @@ const MILESTONES = [
   { year: "2020", title: "POS platform launched", text: "Shipped our first cloud POS release; 40 stores onboarded within six months." },
   { year: "2022", title: "Payment gateway partnerships", text: "Signed acquiring and mobile-wallet partnerships enabling end-to-end merchant payments." },
   { year: "2024", title: "500 businesses served", text: "Crossed 500 active clients and opened a dedicated 24/7 support desk." },
-  { year: "2026", title: "Regional expansion", text: "Serving merchants across Cambodia and Bangladesh with multi-currency settlement." },
+  { year: "2026", title: "Regional expansion", text: "Serving merchants across Bangladesh with multi-currency settlement." },
 ];
 
 function About() {

@@ -1,6 +1,6 @@
 const PARTNERS = [
   "NorthBay Retail",
-  "Angkor Mart",
+  "Bengal Mart",
   "Riverside Grill",
   "Tanvir Trading",
   "MediCare Plus",

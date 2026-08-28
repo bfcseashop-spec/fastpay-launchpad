@@ -53,8 +53,8 @@ const HOME_FAQS = [
     a: "Configuration changes, transaction and settlement queries, hardware faults, staff training refreshers and software updates. It's included with every rental and with the first year of any purchase.",
   },
   {
-    q: "Do you work outside Phnom Penh?",
-    a: "Yes. We install and support clients across Cambodia and Bangladesh. Remote setup and training work well for most software-only deployments, and we travel for multi-branch hardware rollouts.",
+    q: "Do you work outside Dhaka?",
+    a: "Yes. We install and support clients across Bangladesh. Remote setup and training work well for most software-only deployments, and we travel for multi-branch hardware rollouts.",
   },
 ];
 
