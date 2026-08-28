@@ -39,6 +39,68 @@ export const Route = createFileRoute("/pos-system")({
   component: PosSystem,
 });
 
+const HARDWARE = [
+  {
+    name: "Touchscreen Terminal",
+    spec: "15.6\" · Android 13 / Windows 11",
+    note: "Spill-resistant capacitive screen, 8-hour battery backup and a dual-display option for customer-facing totals.",
+  },
+  {
+    name: "Thermal Receipt Printer",
+    spec: "80mm · 250mm/sec · auto-cutter",
+    note: "USB, LAN and Bluetooth. Kitchen printers can be paired separately for restaurant order tickets.",
+  },
+  {
+    name: "Barcode Scanner",
+    spec: "1D & 2D · wired or wireless",
+    note: "Reads damaged and phone-screen barcodes. Label printer available for unlabelled or loose stock.",
+  },
+  {
+    name: "Cash Drawer",
+    spec: "5 note / 8 coin · steel",
+    note: "Opens automatically on cash sales and logs every manual open against the staff member who did it.",
+  },
+];
+
+const CASE_STATS = [
+  { value: "3", label: "Branches on one live stock ledger" },
+  { value: "92%", label: "Drop in month-end reconciliation time" },
+  { value: "৳48k", label: "Monthly shrinkage identified and stopped" },
+  { value: "11 days", label: "From first call to all branches live" },
+];
+
+const INTEGRATIONS = [
+  { name: "Fastpay Payment Gateway", detail: "Card and wallet payments settle straight into the same daily sales report." },
+  { name: "bKash · Nagad · Rocket", detail: "QR and mobile-banking payments captured at the counter with automatic reconciliation." },
+  { name: "WooCommerce & Shopify", detail: "Two-way stock sync so online orders reduce shelf inventory in real time." },
+  { name: "Accounting exports", detail: "Tally, QuickBooks and CSV exports formatted the way your accountant expects." },
+  { name: "SMS & email receipts", detail: "Digital receipts and loyalty point updates sent the moment a sale completes." },
+  { name: "Kitchen display systems", detail: "Orders route to the right prep station with timing and course control." },
+];
+
+const POS_FAQS = [
+  {
+    q: "Can we keep using our existing hardware?",
+    a: "In most cases yes. The software runs on Android tablets, Windows terminals and any modern browser. Send us the model numbers of your printer and scanner and we'll confirm compatibility before you commit to anything.",
+  },
+  {
+    q: "How is our data migrated from the old system?",
+    a: "You export your product list, prices and supplier records in any common format — Excel, CSV or a database dump — and our team cleans, maps and imports it. We run a parallel test day before cutover so you can compare totals against your current system.",
+  },
+  {
+    q: "What actually happens when the internet goes down?",
+    a: "Sales continue offline on the terminal, stored locally and encrypted. When the connection returns, every transaction syncs in order and your reports reflect the correct times. Card payments need connectivity, but cash and wallet-QR sales keep flowing.",
+  },
+  {
+    q: "How long does installation take?",
+    a: "A single outlet is usually live within two to three working days, including catalogue import and staff training. Multi-branch rollouts run branch by branch, typically one to two weeks in total.",
+  },
+  {
+    q: "Who owns the data?",
+    a: "You do. You can export your full sales, stock and customer history at any time, and we provide a complete dump within five working days if you ever decide to leave.",
+  },
+];
+
 const FEATURES = [
   { icon: Boxes, title: "Inventory Management", description: "Live stock levels, low-stock alerts, purchase orders and supplier records across every location." },
   { icon: BarChart3, title: "Sales Reporting", description: "Daily, weekly and item-level reports with profit margins — viewable on your phone from anywhere." },
