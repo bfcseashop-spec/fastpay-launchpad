@@ -3,16 +3,20 @@ import {
   BarChart3,
   BookOpen,
   Code2,
+  Check,
   CreditCard,
+  FileCheck2,
   Globe2,
   Landmark,
+  Lock,
   ShieldCheck,
   Smartphone,
   Timer,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHero, Section, SectionHeading } from "@/components/site/Section";
-import { FeatureCard, StepCard } from "@/components/site/Cards";
+import { FeatureCard, StatCard, StepCard } from "@/components/site/Cards";
+import { TestimonialCarousel } from "@/components/site/Testimonials";
 import { Faq } from "@/components/site/Faq";
 import { CTABanner } from "@/components/site/CTABanner";
 import { COMPANY } from "@/lib/site";
