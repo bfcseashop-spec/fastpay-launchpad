@@ -5,13 +5,16 @@ import {
   LifeBuoy,
   PenTool,
   Search,
+  ShieldCheck,
   ShoppingCart,
   Sparkles,
 } from "lucide-react";
 import webImage from "@/assets/web-dev.jpg";
 import { Button } from "@/components/ui/button";
 import { PageHero, Section, SectionHeading } from "@/components/site/Section";
-import { FeatureCard, StepCard } from "@/components/site/Cards";
+import { FeatureCard, StatCard, StepCard } from "@/components/site/Cards";
+import { Faq } from "@/components/site/Faq";
+import { TestimonialCarousel } from "@/components/site/Testimonials";
 import { CTABanner } from "@/components/site/CTABanner";
 
 export const Route = createFileRoute("/web-development")({
