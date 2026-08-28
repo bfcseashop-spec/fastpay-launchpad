@@ -39,7 +39,7 @@ const MILESTONES = [
   { year: "2024", title: "Fastpay founded", text: "Started in Dhaka as a small team building custom websites and e-commerce stores for local retailers." },
   { year: "2025", title: "POS platform launched", text: "Shipped our first cloud POS release; 40 stores onboarded within six months." },
   { year: "2025", title: "Payment gateway partnerships", text: "Signed acquiring and mobile-wallet partnerships (bKash, Nagad, Rocket, cards) for end-to-end merchant payments." },
-  { year: "2026", title: "70 businesses served", text: "Crossed 70 active clients across Bangladesh and opened a dedicated 24/7 support desk." },
+  { year: "2026", title: "70+ businesses served", text: "Crossed 70+ active clients across Bangladesh and opened a dedicated 24/7 support desk." },
 ];
 
 function About() {
@@ -64,7 +64,7 @@ function About() {
               </p>
               <p>
                 Today we integrate payment gateways, deploy POS systems and build websites for more
-                than 500 businesses. The same engineers who write the integration answer the phone
+                than 70 businesses. The same engineers who write the integration answer the phone
                 when something needs attention, which is why our clients stay with us for years
                 rather than months.
               </p>
