@@ -3,16 +3,20 @@ import {
   BarChart3,
   BookOpen,
   Code2,
+  Check,
   CreditCard,
+  FileCheck2,
   Globe2,
   Landmark,
+  Lock,
   ShieldCheck,
   Smartphone,
   Timer,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHero, Section, SectionHeading } from "@/components/site/Section";
-import { FeatureCard, StepCard } from "@/components/site/Cards";
+import { FeatureCard, StatCard, StepCard } from "@/components/site/Cards";
+import { TestimonialCarousel } from "@/components/site/Testimonials";
 import { Faq } from "@/components/site/Faq";
 import { CTABanner } from "@/components/site/CTABanner";
 import { COMPANY } from "@/lib/site";
@@ -68,6 +72,63 @@ const FEES = [
   { method: "Mobile banking (bKash, Nagad, Rocket)", fee: "Negotiable", settlement: "T+1 business day" },
   { method: "Direct bank transfer", fee: "Negotiable", settlement: "T+1 business day" },
   { method: "Setup & integration", fee: "Negotiable", settlement: "One-time" },
+];
+
+const COMPLIANCE = [
+  {
+    icon: Lock,
+    title: "PCI DSS aligned handling",
+    description:
+      "Card details are captured on our hosted fields, so your servers stay out of scope for card storage.",
+    points: ["Tokenised card vault", "TLS 1.2+ on every endpoint", "No raw PAN in your logs"],
+  },
+  {
+    icon: ShieldCheck,
+    title: "Fraud & risk controls",
+    description:
+      "Every authorisation passes velocity, geo and device rules before it reaches the acquirer.",
+    points: ["3-D Secure step-up", "Blocklist & allowlist rules", "Chargeback alerts by email"],
+  },
+  {
+    icon: FileCheck2,
+    title: "Reconciliation you can audit",
+    description:
+      "Daily settlement files match your bank statement line by line, with exportable CSV and PDF.",
+    points: ["Signed webhooks with retries", "Payout-level statements", "7-year transaction history"],
+  },
+];
+
+const PLUGINS = [
+  { name: "WooCommerce", type: "Plugin", detail: "Install, paste your keys, go live the same day." },
+  { name: "Shopify", type: "App", detail: "Hosted checkout redirect with automatic order sync." },
+  { name: "Laravel / PHP", type: "SDK", detail: "Composer package with sandbox and live drivers." },
+  { name: "Node.js", type: "SDK", detail: "Typed client for payments, refunds and webhooks." },
+  { name: "Flutter & React Native", type: "Mobile", detail: "Drop-in payment sheet for in-app checkout." },
+  { name: "Custom ERP", type: "REST API", detail: "Direct API access with IP allowlisting." },
+  { name: "Fastpay POS", type: "Native", detail: "In-store and online payments under one settlement." },
+  { name: "Zapier / Sheets", type: "Automation", detail: "Push settled payments into your reporting sheet." },
+];
+
+const STATS = [
+  { value: "99.95%", label: "Gateway uptime (90-day average)" },
+  { value: "1.2s", label: "Median authorisation response" },
+  { value: "T+1", label: "Standard settlement to your bank" },
+  { value: "24/7", label: "Merchant support coverage" },
+];
+
+const CASE_STUDY = [
+  {
+    heading: "The problem",
+    body: "Angkor Mart Online lost roughly one in five mobile checkouts. Their old gateway timed out on slow networks and offered no wallet options, so customers abandoned at the payment step.",
+  },
+  {
+    heading: "What we did",
+    body: "We migrated them to Fastpay hosted checkout with saved cards, bKash and Nagad enabled, added retry-on-timeout logic and moved settlement reporting into their finance sheet automatically.",
+  },
+  {
+    heading: "The result",
+    body: "Failed checkouts fell 41% within two months, average payment time dropped to 1.4 seconds, and their finance team stopped reconciling payouts by hand entirely.",
+  },
 ];
 
 const FAQS = [
@@ -215,6 +276,91 @@ return Response.redirect(checkout_url, 303);`}</code>
       </Section>
 
       <Section tone="soft">
+        <SectionHeading
+          eyebrow="Security & Compliance"
+          title="Built to bank-grade standards"
+          description="Card data never touches your servers. Every transaction is tokenised, encrypted in transit and screened before capture."
+        />
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          {COMPLIANCE.map((c) => (
+            <div key={c.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <span className="flex size-11 items-center justify-center rounded-xl bg-accent text-primary">
+                <c.icon className="size-5" aria-hidden="true" />
+              </span>
+              <h3 className="mt-4 text-lg font-bold">{c.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.description}</p>
+              <ul className="mt-4 space-y-2">
+                {c.points.map((p) => (
+                  <li key={p} className="flex gap-2 text-sm text-muted-foreground">
+                    <Check className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeading
+          eyebrow="Platform Integrations"
+          title="Already works with the tools you run"
+          description="Official plugins and SDKs keep your existing stack in place — no re-platforming required."
+        />
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {PLUGINS.map((p) => (
+            <div key={p.name} className="rounded-2xl border border-border bg-card p-5 shadow-card">
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="text-base font-bold">{p.name}</h3>
+                <span className="rounded-full bg-accent px-2.5 py-1 text-xs font-semibold text-primary">
+                  {p.type}
+                </span>
+              </div>
+              <p className="mt-2 text-sm text-muted-foreground">{p.detail}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="navy">
+        <SectionHeading
+          eyebrow="Platform Performance"
+          title="Numbers our merchants see every month"
+          description="Figures from our production gateway across the last 90 days of merchant traffic."
+          light
+        />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {STATS.map((s) => (
+            <StatCard key={s.label} {...s} />
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeading
+          eyebrow="Case Study"
+          title="Angkor Mart Online: 41% fewer failed checkouts"
+          align="left"
+        />
+        <div className="mt-10 grid gap-8 lg:grid-cols-3">
+          {CASE_STUDY.map((c) => (
+            <div key={c.heading} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <p className="text-xs font-semibold uppercase tracking-widest text-primary">
+                {c.heading}
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="soft">
+        <SectionHeading eyebrow="Merchant Feedback" title="Trusted by teams processing daily" />
+        <TestimonialCarousel />
+      </Section>
+
+      <Section>
         <SectionHeading eyebrow="FAQ" title="Payment gateway questions, answered" />
         <Faq items={FAQS} />
       </Section>
