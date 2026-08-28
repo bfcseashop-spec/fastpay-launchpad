@@ -201,6 +201,73 @@ function WebDevelopment() {
         </div>
       </Section>
 
+      <Section>
+        <SectionHeading
+          eyebrow="Technology"
+          title="The stack we build on"
+          description="No page builders, no rented templates. Everything ships as clean code you own, hosted on infrastructure that scales with your traffic."
+        />
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {STACK.map((s) => (
+            <div key={s.area} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <h3 className="text-xs font-semibold tracking-wider text-primary uppercase">
+                {s.area}
+              </h3>
+              <p className="mt-2 text-base font-bold">{s.tools}</p>
+              <p className="mt-2 text-sm text-muted-foreground">{s.why}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="navy">
+        <SectionHeading
+          eyebrow="Case Study"
+          title="Angkor Mart Online: 4,000 SKUs, rebuilt in six weeks"
+          description="A grocery retailer whose old store lost most of its mobile traffic before checkout. We rebuilt the catalogue, checkout and delivery-slot flow end to end."
+          light
+        />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {WEB_STATS.map((s) => (
+            <StatCard key={s.label} {...s} />
+          ))}
+        </div>
+        <p className="mx-auto mt-10 max-w-3xl text-center text-navy-muted">
+          Delivered with wallet checkout through the Fastpay gateway, same-day delivery slots and a
+          stock feed synced to their in-store POS — one team, one accountable contract.
+        </p>
+      </Section>
+
+      <Section tone="soft">
+        <SectionHeading
+          eyebrow="Standards"
+          title="What every site ships with"
+          description="These are not upsells. Every project, on every package, goes live meeting the same baseline."
+        />
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {STANDARDS.map((s) => (
+            <div
+              key={s}
+              className="flex items-start gap-3 rounded-2xl border border-border bg-card p-5 text-sm shadow-card"
+            >
+              <ShieldCheck className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
+              <span className="text-muted-foreground">{s}</span>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeading eyebrow="Client Reviews" title="What clients say about working with us" />
+        <TestimonialCarousel />
+      </Section>
+
+      <Section tone="soft">
+        <SectionHeading eyebrow="FAQ" title="Before you brief us" />
+        <Faq items={WEB_FAQS} />
+      </Section>
+
+
       <CTABanner
         title="Get a free quote for your website"
         description="Send us your requirements and we'll come back with scope, timeline and a fixed price within one business day."
