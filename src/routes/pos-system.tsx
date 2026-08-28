@@ -4,6 +4,7 @@ import {
   Boxes,
   Building2,
   Gift,
+  Plug,
   ScanBarcode,
   Users,
   WifiOff,
@@ -11,7 +12,8 @@ import {
 import posImage from "@/assets/pos-hardware.jpg";
 import { Button } from "@/components/ui/button";
 import { PageHero, Section, SectionHeading } from "@/components/site/Section";
-import { FeatureCard } from "@/components/site/Cards";
+import { FeatureCard, StatCard } from "@/components/site/Cards";
+import { Faq } from "@/components/site/Faq";
 import { TestimonialCarousel } from "@/components/site/Testimonials";
 import { CTABanner } from "@/components/site/CTABanner";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
