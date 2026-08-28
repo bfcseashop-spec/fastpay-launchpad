@@ -10,13 +10,26 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as PaymentGatewayRouteImport } from './routes/payment-gateway'
 import { Route as PosSystemRouteImport } from './routes/pos-system'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as WebDevelopmentRouteImport } from './routes/web-development'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PaymentGatewayRoute = PaymentGatewayRouteImport.update({
@@ -29,6 +42,11 @@ const PosSystemRoute = PosSystemRouteImport.update({
   path: '/pos-system',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WebDevelopmentRoute = WebDevelopmentRouteImport.update({
   id: '/web-development',
   path: '/web-development',
@@ -37,35 +55,69 @@ const WebDevelopmentRoute = WebDevelopmentRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/payment-gateway': typeof PaymentGatewayRoute
   '/pos-system': typeof PosSystemRoute
+  '/pricing': typeof PricingRoute
   '/web-development': typeof WebDevelopmentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/payment-gateway': typeof PaymentGatewayRoute
   '/pos-system': typeof PosSystemRoute
+  '/pricing': typeof PricingRoute
   '/web-development': typeof WebDevelopmentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/payment-gateway': typeof PaymentGatewayRoute
   '/pos-system': typeof PosSystemRoute
+  '/pricing': typeof PricingRoute
   '/web-development': typeof WebDevelopmentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/payment-gateway' | '/pos-system' | '/web-development'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/payment-gateway'
+    | '/pos-system'
+    | '/pricing'
+    | '/web-development'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/payment-gateway' | '/pos-system' | '/web-development'
-  id: '__root__' | '/' | '/payment-gateway' | '/pos-system' | '/web-development'
+  to:
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/payment-gateway'
+    | '/pos-system'
+    | '/pricing'
+    | '/web-development'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/payment-gateway'
+    | '/pos-system'
+    | '/pricing'
+    | '/web-development'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BlogRoute: typeof BlogRoute
   PaymentGatewayRoute: typeof PaymentGatewayRoute
   PosSystemRoute: typeof PosSystemRoute
+  PricingRoute: typeof PricingRoute
   WebDevelopmentRoute: typeof WebDevelopmentRoute
 }
 
@@ -76,6 +128,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/payment-gateway': {
@@ -92,6 +158,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PosSystemRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/web-development': {
       id: '/web-development'
       path: '/web-development'
@@ -104,8 +177,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BlogRoute: BlogRoute,
   PaymentGatewayRoute: PaymentGatewayRoute,
   PosSystemRoute: PosSystemRoute,
+  PricingRoute: PricingRoute,
   WebDevelopmentRoute: WebDevelopmentRoute,
 }
 export const routeTree = rootRouteImport
