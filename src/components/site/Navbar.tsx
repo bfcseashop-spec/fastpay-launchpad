@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ChevronDown, Menu, X, Zap } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
+import markAsset from "@/assets/fastpay-mark.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS, SERVICE_LINKS, COMPANY } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -8,9 +9,14 @@ import { cn } from "@/lib/utils";
 export function Logo({ light = false }: { light?: boolean }) {
   return (
     <Link to="/" className="flex items-center gap-2.5" aria-label={`${COMPANY.name} home`}>
-      <span className="flex size-9 items-center justify-center rounded-xl bg-gradient-brand text-primary-foreground shadow-glow">
-        <Zap className="size-5" aria-hidden="true" />
-      </span>
+      <img
+        src={markAsset.url}
+        alt={`${COMPANY.name} logo`}
+        width={40}
+        height={40}
+        className="size-10 shrink-0 rounded-xl object-cover shadow-glow"
+      />
+
       <span className="leading-tight">
         <span
           className={cn(
