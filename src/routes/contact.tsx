@@ -92,7 +92,7 @@ function Contact() {
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="grid gap-2">
                   <Label htmlFor="phone">Phone</Label>
-                  <Input id="phone" name="phone" type="tel" placeholder="+855 ..." />
+                  <Input id="phone" name="phone" type="tel" placeholder="+880 17XX-XXXXXX" />
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="subject">Subject *</Label>
