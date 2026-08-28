@@ -63,6 +63,94 @@ const FAQS = [
   },
 ];
 
+type Cell = boolean | string;
+
+const COMPARE_PLANS = ["POS Rent", "POS Purchase", "Gateway", "Website"] as const;
+
+const COMPARE_GROUPS: { group: string; rows: { feature: string; values: Cell[] }[] }[] = [
+  {
+    group: "Commercials",
+    rows: [
+      {
+        feature: "Entry cost",
+        values: ["৳4,000 / month", "৳120,000 one-time", "Negotiable", "Negotiable"],
+      },
+      { feature: "Minimum term", values: ["3 months", "None", "12 months", "Project based"] },
+      { feature: "Annual payment discount", values: [true, false, true, true] },
+      { feature: "Rental credited toward purchase", values: [true, false, false, false] },
+    ],
+  },
+  {
+    group: "Setup & onboarding",
+    rows: [
+      { feature: "Standard installation & configuration", values: [true, true, true, true] },
+      { feature: "Staff training session", values: [true, true, "Developer handover", true] },
+      { feature: "Data migration from old system", values: ["Quoted", "Quoted", "Quoted", true] },
+      { feature: "Go-live support on site", values: [true, true, false, false] },
+    ],
+  },
+  {
+    group: "Platform & features",
+    rows: [
+      { feature: "Feature updates included", values: [true, "12 months", true, "Plan based"] },
+      { feature: "Offline mode", values: [true, true, false, false] },
+      { feature: "Multi-outlet / multi-store", values: ["Per outlet", "Per outlet", true, true] },
+      { feature: "Payment gateway integration", values: [true, true, true, "Premium package"] },
+      { feature: "Analytics & reporting dashboard", values: [true, true, true, "Standard+"] },
+    ],
+  },
+  {
+    group: "Support & assurance",
+    rows: [
+      { feature: "24/7 phone & WhatsApp support", values: [true, "Under AMC", true, false] },
+      { feature: "Business-hours email support", values: [true, true, true, true] },
+      { feature: "Daily encrypted cloud backups", values: [true, true, true, "Standard+"] },
+      { feature: "Uptime commitment", values: ["99.9%", "99.9%", "99.95%", "99.9%"] },
+      { feature: "Dedicated account manager", values: [false, true, true, false] },
+    ],
+  },
+];
+
+const TERMS = [
+  {
+    icon: FileSignature,
+    title: "Contract & minimum term",
+    description:
+      "POS rentals run on a rolling three-month minimum, then month-to-month with 30 days' notice. Gateway merchant agreements run 12 months. Website projects are fixed-scope contracts with no lock-in.",
+  },
+  {
+    icon: Receipt,
+    title: "Billing & payment terms",
+    description:
+      "Rentals are invoiced monthly in advance; project work is 40% on signature, 40% at design sign-off and 20% on go-live. Bank transfer, card and mobile banking accepted. All prices exclude VAT.",
+  },
+  {
+    icon: CalendarClock,
+    title: "Implementation timeline",
+    description:
+      "POS goes live in 3–5 working days, hosted gateway checkout in 2–4 days, custom API integration in 1–3 weeks, and websites in 3–8 weeks depending on scope and content readiness.",
+  },
+  {
+    icon: Wrench,
+    title: "Maintenance & AMC",
+    description:
+      "Purchased POS systems include 12 months of updates; after that an annual maintenance contract covers updates, priority support and backups at a negotiable rate.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Data ownership & exit",
+    description:
+      "Your transaction, customer and product data is yours. On termination we provide a full CSV/SQL export within 7 days and retain nothing beyond legal requirements.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Upgrades & changes",
+    description:
+      "Add outlets, terminals or pages at any time — new charges are pro-rated to your current billing cycle so you never pay twice for the same month.",
+  },
+];
+
+
 function Pricing() {
   return (
     <>
