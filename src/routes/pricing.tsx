@@ -1,9 +1,24 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CreditCard, Mail, MonitorSmartphone, Phone, Store } from "lucide-react";
+import {
+  CalendarClock,
+  Check,
+  CreditCard,
+  FileSignature,
+  Mail,
+  Minus,
+  MonitorSmartphone,
+  Phone,
+  Receipt,
+  RefreshCw,
+  ShieldCheck,
+  Store,
+  Wrench,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHero, Section, SectionHeading } from "@/components/site/Section";
 import { Faq } from "@/components/site/Faq";
 import { COMPANY } from "@/lib/site";
+
 
 export const Route = createFileRoute("/pricing")({
   head: () => ({
