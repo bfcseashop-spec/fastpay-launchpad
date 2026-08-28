@@ -12,7 +12,7 @@ export function LogoStrip() {
     <div className="border-y border-border bg-surface px-6 py-10">
       <div className="mx-auto max-w-7xl">
         <p className="text-center text-xs font-semibold tracking-[0.18em] text-muted-foreground uppercase">
-          Trusted by 500+ businesses across retail, food and e-commerce
+          Trusted by 250+ businesses across retail, food and e-commerce
         </p>
         <div className="mt-6 grid grid-cols-2 items-center gap-6 sm:grid-cols-3 lg:grid-cols-6">
           {PARTNERS.map((p) => (
