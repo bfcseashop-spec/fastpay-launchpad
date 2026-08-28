@@ -20,6 +20,7 @@ import { TestimonialCarousel } from "@/components/site/Testimonials";
 import { Faq } from "@/components/site/Faq";
 import { CTABanner } from "@/components/site/CTABanner";
 import { COMPANY } from "@/lib/site";
+import caseImage from "@/assets/photo-payment-checkout.jpg";
 
 export const Route = createFileRoute("/payment-gateway")({
   head: () => ({
@@ -343,6 +344,7 @@ return Response.redirect(checkout_url, 303);`}</code>
           title="Angkor Mart Online: 41% fewer failed checkouts"
           align="left"
         />
+        <img src={caseImage} alt="Customer paying by card on a payment terminal at a retail checkout" className="mt-10 w-full rounded-2xl border border-border/40 object-cover shadow-card" loading="lazy" width={1200} height={800} />
         <div className="mt-10 grid gap-8 lg:grid-cols-3">
           {CASE_STUDY.map((c) => (
             <div key={c.heading} className="rounded-2xl border border-border bg-card p-6 shadow-card">

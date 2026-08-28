@@ -18,6 +18,7 @@ import { TestimonialCarousel } from "@/components/site/Testimonials";
 import { CTABanner } from "@/components/site/CTABanner";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { COMPANY } from "@/lib/site";
+import storeImage from "@/assets/photo-pos-store.jpg";
 
 export const Route = createFileRoute("/pos-system")({
   head: () => ({
@@ -294,6 +295,7 @@ function PosSystem() {
           description="Before Fastpay, each branch counted stock on paper and reconciled once a month. Six weeks after go-live the numbers looked very different."
           light
         />
+        <img src={storeImage} alt="Shop staff using a Fastpay touchscreen POS with receipt printer and scanner" className="mt-10 w-full rounded-2xl border border-border/40 object-cover shadow-card" loading="lazy" width={1200} height={800} />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {CASE_STATS.map((s) => (
             <StatCard key={s.label} {...s} />
