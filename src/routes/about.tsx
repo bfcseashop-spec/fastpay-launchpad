@@ -13,7 +13,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Meet Fastpay IT Solution Ltd — the team behind payment gateway integrations, POS rollouts and websites for 500+ businesses since 2018.",
+          "Meet Fastpay IT Solution Ltd — the team behind payment gateway integrations, POS rollouts and websites for 250+ businesses since 2024.",
       },
       { property: "og:title", content: "About Fastpay IT Solution Ltd" },
       {
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/about")({
 });
 
 const TEAM = [
-  { name: "Sopheak Vann", role: "Founder & Managing Director", bio: "15 years in payments and merchant acquiring across Southeast Asia." },
+  { name: "Rakibul Hasan", role: "Founder & Managing Director", bio: "12 years in payments and merchant acquiring; founded Fastpay in Dhaka in 2024." },
   { name: "Nadia Rahman", role: "Head of Engineering", bio: "Leads gateway integrations, POS architecture and platform reliability." },
   { name: "Rathanak Kim", role: "POS Solutions Lead", bio: "Designs store workflows for retail, restaurant and pharmacy clients." },
   { name: "Imran Kabir", role: "Web & Design Lead", bio: "Runs UI/UX, front-end delivery and conversion optimisation." },
@@ -36,11 +36,10 @@ const TEAM = [
 ];
 
 const MILESTONES = [
-  { year: "2018", title: "Fastpay founded", text: "Started as a two-person team building custom websites for local retailers." },
-  { year: "2020", title: "POS platform launched", text: "Shipped our first cloud POS release; 40 stores onboarded within six months." },
-  { year: "2022", title: "Payment gateway partnerships", text: "Signed acquiring and mobile-wallet partnerships enabling end-to-end merchant payments." },
-  { year: "2024", title: "500 businesses served", text: "Crossed 500 active clients and opened a dedicated 24/7 support desk." },
-  { year: "2026", title: "Regional expansion", text: "Serving merchants across Bangladesh with multi-currency settlement." },
+  { year: "2024", title: "Fastpay founded", text: "Started in Dhaka as a small team building custom websites and e-commerce stores for local retailers." },
+  { year: "2025", title: "POS platform launched", text: "Shipped our first cloud POS release; 40 stores onboarded within six months." },
+  { year: "2025", title: "Payment gateway partnerships", text: "Signed acquiring and mobile-wallet partnerships (bKash, Nagad, Rocket, cards) for end-to-end merchant payments." },
+  { year: "2026", title: "250 businesses served", text: "Crossed 250 active clients across Bangladesh and opened a dedicated 24/7 support desk." },
 ];
 
 function About() {
@@ -49,7 +48,7 @@ function About() {
       <PageHero
         eyebrow="About Us"
         title="A local IT partner with fintech-grade standards"
-        description="Since 2018 Fastpay IT Solution Ltd has helped businesses take payments, run their stores and show up properly online — with one accountable team behind all three."
+        description="Since 2024 Fastpay IT Solution Ltd has helped businesses take payments, run their stores and show up properly online — with one accountable team behind all three."
       />
 
       <Section>
