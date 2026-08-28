@@ -4,6 +4,7 @@ import { PageHero, Section, SectionHeading } from "@/components/site/Section";
 import { FeatureCard } from "@/components/site/Cards";
 import { CTABanner } from "@/components/site/CTABanner";
 import { COMPANY } from "@/lib/site";
+import officeImage from "@/assets/photo-team-office.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -100,6 +101,7 @@ function About() {
           title="The people behind your project"
           description="A compact senior team — you work directly with the specialists, not an account layer."
         />
+        <img src={officeImage} alt="Fastpay IT Solution engineers collaborating in the operations office" className="mt-10 w-full rounded-2xl border border-border/40 object-cover shadow-card" loading="lazy" width={1200} height={800} />
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {TEAM.map((m) => (
             <div key={m.name} className="rounded-2xl border border-border bg-card p-6 shadow-card">

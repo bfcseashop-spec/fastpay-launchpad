@@ -16,6 +16,7 @@ import { FeatureCard, StatCard, StepCard } from "@/components/site/Cards";
 import { Faq } from "@/components/site/Faq";
 import { TestimonialCarousel } from "@/components/site/Testimonials";
 import { CTABanner } from "@/components/site/CTABanner";
+import studioImage from "@/assets/photo-web-studio.jpg";
 
 export const Route = createFileRoute("/web-development")({
   head: () => ({
@@ -295,6 +296,7 @@ function WebDevelopment() {
           description="A grocery retailer whose old store lost most of its mobile traffic before checkout. We rebuilt the catalogue, checkout and delivery-slot flow end to end."
           light
         />
+        <img src={studioImage} alt="Designer reviewing a responsive e-commerce website on desktop and mobile" className="mt-10 w-full rounded-2xl border border-border/40 object-cover shadow-card" loading="lazy" width={1200} height={800} />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {WEB_STATS.map((s) => (
             <StatCard key={s.label} {...s} />
