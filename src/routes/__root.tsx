@@ -21,25 +21,27 @@ import { Button } from "@/components/ui/button";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-[70vh] items-center justify-center bg-gradient-hero px-4 text-navy-foreground">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+        <p className="font-display text-7xl font-extrabold text-gradient-brand">404</p>
+        <h1 className="mt-4 text-2xl font-bold">Page not found</h1>
+        <p className="mt-3 text-sm text-navy-muted">
+          The page you're looking for doesn't exist or has moved. Let's get you back to something
+          useful.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
+        <div className="mt-7 flex flex-wrap justify-center gap-3">
+          <Button asChild variant="hero" size="lg">
+            <Link to="/">Back to Home</Link>
+          </Button>
+          <Button asChild variant="heroOutline" size="lg">
+            <Link to="/contact">Contact Support</Link>
+          </Button>
         </div>
       </div>
     </div>
   );
 }
+
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
