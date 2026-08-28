@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Clock, Facebook, Linkedin, Mail, MapPin, MessageCircle, Phone, Zap } from "lucide-react";
+import { Clock, Facebook, Linkedin, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import markAsset from "@/assets/fastpay-mark.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
@@ -11,9 +12,14 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-2.5">
-            <span className="flex size-9 items-center justify-center rounded-xl bg-gradient-brand text-primary-foreground">
-              <Zap className="size-5" aria-hidden="true" />
-            </span>
+            <img
+              src={markAsset.url}
+              alt={`${COMPANY.name} logo`}
+              width={40}
+              height={40}
+              className="size-10 shrink-0 rounded-xl object-cover"
+            />
+
             <span className="font-display text-lg font-extrabold text-navy-foreground">
               Fastpay IT Solution Ltd
             </span>
