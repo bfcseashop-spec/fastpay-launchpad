@@ -2,12 +2,12 @@ export const COMPANY = {
   name: "Fastpay IT Solution Ltd",
   short: "Fastpay",
   tagline: "Your Complete IT & Payment Partner",
-  phone: "+855 078514425",
-  phoneHref: "tel:+855078514425",
-  whatsapp: "https://wa.me/855078514425",
+  phone: "+880 1785-514425",
+  phoneHref: "tel:+8801785514425",
+  whatsapp: "https://wa.me/8801785514425",
   email: "fastpay.tech@gmail.com",
   emailHref: "mailto:fastpay.tech@gmail.com",
-  address: "Level 4, Norodom Boulevard, Chamkarmon, Phnom Penh, Cambodia",
+  address: "Level 4, House 27, Kazi Nazrul Islam Avenue, Banglamotor, Dhaka 1000, Bangladesh",
   hours: "Sun–Fri: 9:00 AM – 6:00 PM",
   socials: {
     facebook: "https://facebook.com",
@@ -103,7 +103,7 @@ export const TESTIMONIALS = [
     quote:
       "Fastpay integrated our payment gateway in four days. Settlements now land the next morning and our failed-payment rate dropped by half.",
     name: "Sokha Chan",
-    role: "Founder, Angkor Mart Online",
+    role: "Founder, Bengal Mart Online",
   },
   {
     quote:

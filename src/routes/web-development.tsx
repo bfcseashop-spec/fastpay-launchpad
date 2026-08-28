@@ -114,7 +114,7 @@ const SERVICES = [
 ];
 
 const PORTFOLIO = [
-  { title: "Angkor Mart Online", category: "E-commerce", blurb: "Grocery store with 4,000 SKUs, wallet checkout and same-day delivery slots." },
+  { title: "Bengal Mart Online", category: "E-commerce", blurb: "Grocery store with 4,000 SKUs, wallet checkout and same-day delivery slots." },
   { title: "Riverside Grill House", category: "Restaurant", blurb: "Menu, reservations and online ordering integrated with their Fastpay POS." },
   { title: "MediCare Plus", category: "Healthcare", blurb: "Multi-branch pharmacy site with prescription upload and stock availability lookup." },
   { title: "Tanvir Trading Co.", category: "Corporate", blurb: "Bilingual B2B catalogue and quote-request portal for an import/export group." },
@@ -198,7 +198,7 @@ function WebDevelopment() {
         <SectionHeading
           eyebrow="Portfolio"
           title="Recent work"
-          description="A snapshot of sites and applications we've delivered for clients across Cambodia and Bangladesh."
+          description="A snapshot of sites and applications we've delivered for clients across Bangladesh."
         />
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {PORTFOLIO.map((p) => (
@@ -292,7 +292,7 @@ function WebDevelopment() {
       <Section tone="navy">
         <SectionHeading
           eyebrow="Case Study"
-          title="Angkor Mart Online: 4,000 SKUs, rebuilt in six weeks"
+          title="Bengal Mart Online: 4,000 SKUs, rebuilt in six weeks"
           description="A grocery retailer whose old store lost most of its mobile traffic before checkout. We rebuilt the catalogue, checkout and delivery-slot flow end to end."
           light
         />

@@ -55,7 +55,7 @@ const FEATURES = [
   { icon: Timer, title: "Instant Settlement", description: "Next-business-day settlement as standard, with same-day options for high-volume merchants." },
   { icon: ShieldCheck, title: "Fraud Protection", description: "Rule-based screening, velocity checks and 3-D Secure to stop suspicious transactions before capture." },
   { icon: Code2, title: "Easy API Integration", description: "REST API, hosted checkout and ready-made plugins for WooCommerce, Shopify and custom stacks." },
-  { icon: Globe2, title: "Multi-currency Support", description: "Charge in KHR, USD, BDT and more, with transparent conversion and settlement in your chosen currency." },
+  { icon: Globe2, title: "Multi-currency Support", description: "Charge in BDT, USD and more, with transparent conversion and settlement in your chosen currency." },
   { icon: BarChart3, title: "Real-time Dashboard", description: "Live transaction feed, refunds, payouts and downloadable reconciliation reports in one place." },
   { icon: BookOpen, title: "Developer-friendly Docs", description: "Clear reference docs, sandbox keys and sample code so your team can integrate without guesswork." },
 ];
@@ -120,7 +120,7 @@ const STATS = [
 const CASE_STUDY = [
   {
     heading: "The problem",
-    body: "Angkor Mart Online lost roughly one in five mobile checkouts. Their old gateway timed out on slow networks and offered no wallet options, so customers abandoned at the payment step.",
+    body: "Bengal Mart Online lost roughly one in five mobile checkouts. Their old gateway timed out on slow networks and offered no wallet options, so customers abandoned at the payment step.",
   },
   {
     heading: "What we did",
@@ -341,7 +341,7 @@ return Response.redirect(checkout_url, 303);`}</code>
       <Section>
         <SectionHeading
           eyebrow="Case Study"
-          title="Angkor Mart Online: 41% fewer failed checkouts"
+          title="Bengal Mart Online: 41% fewer failed checkouts"
           align="left"
         />
         <img src={caseImage} alt="Customer paying by card on a payment terminal at a retail checkout" className="mt-10 w-full rounded-2xl border border-border/40 object-cover shadow-card" loading="lazy" width={1200} height={800} />

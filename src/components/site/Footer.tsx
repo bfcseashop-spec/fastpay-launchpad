@@ -26,7 +26,7 @@ export function Footer() {
           </div>
           <p className="mt-4 text-sm leading-relaxed">
             {COMPANY.tagline}. We build and support payment gateways, POS systems and high-performing
-            websites for growing businesses across Cambodia and beyond.
+            websites for growing businesses across Bangladesh and beyond.
           </p>
           <div className="mt-5 flex items-center gap-3">
             <SocialIcon href={COMPANY.socials.facebook} label="Facebook">
