@@ -70,6 +70,63 @@ const FEES = [
   { method: "Setup & integration", fee: "Negotiable", settlement: "One-time" },
 ];
 
+const COMPLIANCE = [
+  {
+    icon: Lock,
+    title: "PCI DSS aligned handling",
+    description:
+      "Card details are captured on our hosted fields, so your servers stay out of scope for card storage.",
+    points: ["Tokenised card vault", "TLS 1.2+ on every endpoint", "No raw PAN in your logs"],
+  },
+  {
+    icon: ShieldCheck,
+    title: "Fraud & risk controls",
+    description:
+      "Every authorisation passes velocity, geo and device rules before it reaches the acquirer.",
+    points: ["3-D Secure step-up", "Blocklist & allowlist rules", "Chargeback alerts by email"],
+  },
+  {
+    icon: FileCheck2,
+    title: "Reconciliation you can audit",
+    description:
+      "Daily settlement files match your bank statement line by line, with exportable CSV and PDF.",
+    points: ["Signed webhooks with retries", "Payout-level statements", "7-year transaction history"],
+  },
+];
+
+const PLUGINS = [
+  { name: "WooCommerce", type: "Plugin", detail: "Install, paste your keys, go live the same day." },
+  { name: "Shopify", type: "App", detail: "Hosted checkout redirect with automatic order sync." },
+  { name: "Laravel / PHP", type: "SDK", detail: "Composer package with sandbox and live drivers." },
+  { name: "Node.js", type: "SDK", detail: "Typed client for payments, refunds and webhooks." },
+  { name: "Flutter & React Native", type: "Mobile", detail: "Drop-in payment sheet for in-app checkout." },
+  { name: "Custom ERP", type: "REST API", detail: "Direct API access with IP allowlisting." },
+  { name: "Fastpay POS", type: "Native", detail: "In-store and online payments under one settlement." },
+  { name: "Zapier / Sheets", type: "Automation", detail: "Push settled payments into your reporting sheet." },
+];
+
+const STATS = [
+  { value: "99.95%", label: "Gateway uptime (90-day average)" },
+  { value: "1.2s", label: "Median authorisation response" },
+  { value: "T+1", label: "Standard settlement to your bank" },
+  { value: "24/7", label: "Merchant support coverage" },
+];
+
+const CASE_STUDY = [
+  {
+    heading: "The problem",
+    body: "Angkor Mart Online lost roughly one in five mobile checkouts. Their old gateway timed out on slow networks and offered no wallet options, so customers abandoned at the payment step.",
+  },
+  {
+    heading: "What we did",
+    body: "We migrated them to Fastpay hosted checkout with saved cards, bKash and Nagad enabled, added retry-on-timeout logic and moved settlement reporting into their finance sheet automatically.",
+  },
+  {
+    heading: "The result",
+    body: "Failed checkouts fell 41% within two months, average payment time dropped to 1.4 seconds, and their finance team stopped reconciling payouts by hand entirely.",
+  },
+];
+
 const FAQS = [
   { q: "How long does integration take?", a: "Most merchants using our hosted checkout are live within 3–5 business days. A fully custom API integration typically takes one to two weeks depending on your platform." },
   { q: "Do you support recurring billing?", a: "Yes. Tokenised card storage lets you charge subscriptions and installments without holding card data yourself." },
