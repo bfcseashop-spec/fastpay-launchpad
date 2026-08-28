@@ -5,13 +5,16 @@ import {
   LifeBuoy,
   PenTool,
   Search,
+  ShieldCheck,
   ShoppingCart,
   Sparkles,
 } from "lucide-react";
 import webImage from "@/assets/web-dev.jpg";
 import { Button } from "@/components/ui/button";
 import { PageHero, Section, SectionHeading } from "@/components/site/Section";
-import { FeatureCard, StepCard } from "@/components/site/Cards";
+import { FeatureCard, StatCard, StepCard } from "@/components/site/Cards";
+import { Faq } from "@/components/site/Faq";
+import { TestimonialCarousel } from "@/components/site/Testimonials";
 import { CTABanner } from "@/components/site/CTABanner";
 
 export const Route = createFileRoute("/web-development")({
@@ -33,6 +36,71 @@ export const Route = createFileRoute("/web-development")({
   }),
   component: WebDevelopment,
 });
+
+const STACK = [
+  {
+    area: "Front-end",
+    tools: "React, Next.js, Tailwind CSS",
+    why: "Component-based builds that stay fast on mobile networks and are easy to extend later.",
+  },
+  {
+    area: "Back-end",
+    tools: "Node.js, Laravel, PostgreSQL",
+    why: "Proven server stacks with structured data, background jobs and clean REST or GraphQL APIs.",
+  },
+  {
+    area: "Commerce",
+    tools: "WooCommerce, Shopify, custom carts",
+    why: "Chosen to fit your catalogue size and margin, never forced into one platform we resell.",
+  },
+  {
+    area: "Infrastructure",
+    tools: "Cloudflare CDN, automated backups, SSL",
+    why: "Global edge delivery, daily off-site backups and staging environments for every project.",
+  },
+];
+
+const WEB_STATS = [
+  { value: "1.2s", label: "Largest contentful paint on 4G" },
+  { value: "+38%", label: "Mobile checkout completion" },
+  { value: "4,000", label: "Products migrated with images" },
+  { value: "6 weeks", label: "Brief to launch, including UAT" },
+];
+
+const STANDARDS = [
+  "Responsive layouts tested on real phones, tablets and desktop widths",
+  "Core Web Vitals in the green before we call a project finished",
+  "Semantic, accessible markup aimed at WCAG 2.1 AA",
+  "SSL, security headers and automated daily backups",
+  "Sitemap, structured data and Google Search Console setup",
+  "Analytics with conversion goals configured, not just a tracking tag",
+  "Content management your own team can use without calling us",
+  "Full source code and hosting credentials handed over at launch",
+  "30-day post-launch bug fix window on every package",
+];
+
+const WEB_FAQS = [
+  {
+    q: "How long does a website take?",
+    a: "A five-page business site typically takes two to three weeks. A standard site with a blog and custom design runs four to six weeks, and e-commerce or a custom web app usually lands between six and twelve weeks depending on catalogue size and integrations.",
+  },
+  {
+    q: "Do we own the code and the hosting?",
+    a: "Yes. At launch we hand over the full source repository, database and hosting credentials in your own accounts. There is no lock-in and no licence you have to keep paying us for.",
+  },
+  {
+    q: "Can you work with our existing brand and content?",
+    a: "Absolutely. If you have a brand guide we follow it exactly. If you don't, we'll produce a lightweight one — colours, type scale and component styles — as part of the design phase.",
+  },
+  {
+    q: "What happens after launch?",
+    a: "Every project includes a 30-day bug-fix window. After that you can take a monthly maintenance plan covering updates, security patches, backups, uptime monitoring and a set number of content change hours.",
+  },
+  {
+    q: "Can you integrate payments and our POS?",
+    a: "That's the advantage of using us for all three. We connect the site to the Fastpay gateway for card and wallet checkout, and sync stock with your Fastpay POS so online and in-store inventory never drift apart.",
+  },
+];
 
 const SERVICES = [
   { icon: Briefcase, title: "Business Websites", description: "Credible, fast corporate sites with clear service pages, lead capture and easy content editing." },
@@ -200,6 +268,73 @@ function WebDevelopment() {
           ))}
         </div>
       </Section>
+
+      <Section>
+        <SectionHeading
+          eyebrow="Technology"
+          title="The stack we build on"
+          description="No page builders, no rented templates. Everything ships as clean code you own, hosted on infrastructure that scales with your traffic."
+        />
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {STACK.map((s) => (
+            <div key={s.area} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <h3 className="text-xs font-semibold tracking-wider text-primary uppercase">
+                {s.area}
+              </h3>
+              <p className="mt-2 text-base font-bold">{s.tools}</p>
+              <p className="mt-2 text-sm text-muted-foreground">{s.why}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="navy">
+        <SectionHeading
+          eyebrow="Case Study"
+          title="Angkor Mart Online: 4,000 SKUs, rebuilt in six weeks"
+          description="A grocery retailer whose old store lost most of its mobile traffic before checkout. We rebuilt the catalogue, checkout and delivery-slot flow end to end."
+          light
+        />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {WEB_STATS.map((s) => (
+            <StatCard key={s.label} {...s} />
+          ))}
+        </div>
+        <p className="mx-auto mt-10 max-w-3xl text-center text-navy-muted">
+          Delivered with wallet checkout through the Fastpay gateway, same-day delivery slots and a
+          stock feed synced to their in-store POS — one team, one accountable contract.
+        </p>
+      </Section>
+
+      <Section tone="soft">
+        <SectionHeading
+          eyebrow="Standards"
+          title="What every site ships with"
+          description="These are not upsells. Every project, on every package, goes live meeting the same baseline."
+        />
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {STANDARDS.map((s) => (
+            <div
+              key={s}
+              className="flex items-start gap-3 rounded-2xl border border-border bg-card p-5 text-sm shadow-card"
+            >
+              <ShieldCheck className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
+              <span className="text-muted-foreground">{s}</span>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeading eyebrow="Client Reviews" title="What clients say about working with us" />
+        <TestimonialCarousel />
+      </Section>
+
+      <Section tone="soft">
+        <SectionHeading eyebrow="FAQ" title="Before you brief us" />
+        <Faq items={WEB_FAQS} />
+      </Section>
+
 
       <CTABanner
         title="Get a free quote for your website"
