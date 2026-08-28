@@ -205,6 +205,71 @@ function PosSystem() {
       </Section>
 
       <Section>
+        <SectionHeading
+          eyebrow="Hardware"
+          title="Tested hardware, supplied and installed"
+          description="We only ship equipment we service ourselves, so a faulty printer or scanner is replaced — not debated."
+        />
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {HARDWARE.map((h) => (
+            <div key={h.name} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <h3 className="text-base font-bold">{h.name}</h3>
+              <p className="mt-1 text-xs font-semibold tracking-wider text-primary uppercase">
+                {h.spec}
+              </p>
+              <p className="mt-3 text-sm text-muted-foreground">{h.note}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="navy">
+        <SectionHeading
+          eyebrow="Case Study"
+          title="Rina's Pharmacy: three branches, one stock ledger"
+          description="Before Fastpay, each branch counted stock on paper and reconciled once a month. Six weeks after go-live the numbers looked very different."
+          light
+        />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {CASE_STATS.map((s) => (
+            <StatCard key={s.label} {...s} />
+          ))}
+        </div>
+        <p className="mx-auto mt-10 max-w-3xl text-center text-navy-muted">
+          Migration covered 6,200 products, 14 staff logins and two years of supplier history. Total
+          downtime during cutover: one evening, after closing.
+        </p>
+      </Section>
+
+      <Section tone="soft">
+        <SectionHeading
+          eyebrow="Integrations"
+          title="Connects to what you already use"
+          description="Your POS should not be an island. We sync sales, stock and payouts with the tools your accountant and your customers already rely on."
+        />
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {INTEGRATIONS.map((i) => (
+            <div
+              key={i.name}
+              className="flex items-start gap-3 rounded-2xl border border-border bg-card p-5 shadow-card"
+            >
+              <Plug className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
+              <span>
+                <span className="block text-sm font-semibold">{i.name}</span>
+                <span className="block text-sm text-muted-foreground">{i.detail}</span>
+              </span>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeading eyebrow="FAQ" title="Questions retailers ask us first" />
+        <Faq items={POS_FAQS} />
+      </Section>
+
+
+      <Section>
         <SectionHeading eyebrow="Client Reviews" title="Retailers who switched to Fastpay POS" />
         <TestimonialCarousel />
       </Section>
