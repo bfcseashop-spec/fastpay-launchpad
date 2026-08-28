@@ -37,6 +37,71 @@ export const Route = createFileRoute("/web-development")({
   component: WebDevelopment,
 });
 
+const STACK = [
+  {
+    area: "Front-end",
+    tools: "React, Next.js, Tailwind CSS",
+    why: "Component-based builds that stay fast on mobile networks and are easy to extend later.",
+  },
+  {
+    area: "Back-end",
+    tools: "Node.js, Laravel, PostgreSQL",
+    why: "Proven server stacks with structured data, background jobs and clean REST or GraphQL APIs.",
+  },
+  {
+    area: "Commerce",
+    tools: "WooCommerce, Shopify, custom carts",
+    why: "Chosen to fit your catalogue size and margin, never forced into one platform we resell.",
+  },
+  {
+    area: "Infrastructure",
+    tools: "Cloudflare CDN, automated backups, SSL",
+    why: "Global edge delivery, daily off-site backups and staging environments for every project.",
+  },
+];
+
+const WEB_STATS = [
+  { value: "1.2s", label: "Largest contentful paint on 4G" },
+  { value: "+38%", label: "Mobile checkout completion" },
+  { value: "4,000", label: "Products migrated with images" },
+  { value: "6 weeks", label: "Brief to launch, including UAT" },
+];
+
+const STANDARDS = [
+  "Responsive layouts tested on real phones, tablets and desktop widths",
+  "Core Web Vitals in the green before we call a project finished",
+  "Semantic, accessible markup aimed at WCAG 2.1 AA",
+  "SSL, security headers and automated daily backups",
+  "Sitemap, structured data and Google Search Console setup",
+  "Analytics with conversion goals configured, not just a tracking tag",
+  "Content management your own team can use without calling us",
+  "Full source code and hosting credentials handed over at launch",
+  "30-day post-launch bug fix window on every package",
+];
+
+const WEB_FAQS = [
+  {
+    q: "How long does a website take?",
+    a: "A five-page business site typically takes two to three weeks. A standard site with a blog and custom design runs four to six weeks, and e-commerce or a custom web app usually lands between six and twelve weeks depending on catalogue size and integrations.",
+  },
+  {
+    q: "Do we own the code and the hosting?",
+    a: "Yes. At launch we hand over the full source repository, database and hosting credentials in your own accounts. There is no lock-in and no licence you have to keep paying us for.",
+  },
+  {
+    q: "Can you work with our existing brand and content?",
+    a: "Absolutely. If you have a brand guide we follow it exactly. If you don't, we'll produce a lightweight one — colours, type scale and component styles — as part of the design phase.",
+  },
+  {
+    q: "What happens after launch?",
+    a: "Every project includes a 30-day bug-fix window. After that you can take a monthly maintenance plan covering updates, security patches, backups, uptime monitoring and a set number of content change hours.",
+  },
+  {
+    q: "Can you integrate payments and our POS?",
+    a: "That's the advantage of using us for all three. We connect the site to the Fastpay gateway for card and wallet checkout, and sync stock with your Fastpay POS so online and in-store inventory never drift apart.",
+  },
+];
+
 const SERVICES = [
   { icon: Briefcase, title: "Business Websites", description: "Credible, fast corporate sites with clear service pages, lead capture and easy content editing." },
   { icon: ShoppingCart, title: "E-commerce Websites", description: "Full online stores with product management, payment gateway integration and order workflows." },
