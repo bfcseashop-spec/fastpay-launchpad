@@ -307,6 +307,45 @@ function Home() {
         </div>
       </Section>
 
+      <Section>
+        <SectionHeading
+          eyebrow="Industries"
+          title="Who we work with every day"
+          description="Different counters, different rules. We configure the same platform around how each sector actually trades."
+        />
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {INDUSTRIES.map((i) => (
+            <div key={i.name} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <h3 className="text-base font-bold">{i.name}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{i.detail}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="soft">
+        <SectionHeading
+          eyebrow="Assurance"
+          title="Commitments we put in writing"
+          description="Every engagement is covered by a signed service agreement — these are the terms inside it."
+        />
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {ASSURANCES.map((a) => (
+            <div key={a.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <p className="font-display text-2xl font-extrabold text-primary">{a.metric}</p>
+              <h3 className="mt-2 text-base font-bold">{a.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{a.detail}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeading eyebrow="FAQ" title="Common questions" />
+        <Faq items={HOME_FAQS} />
+      </Section>
+
+
       <CTABanner />
     </>
   );
