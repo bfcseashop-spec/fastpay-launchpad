@@ -29,9 +29,9 @@ export const Route = createFileRoute("/about")({
 const TEAM = [
   { name: "Rakibul Hasan", role: "Founder & Managing Director", bio: "12 years in payments and merchant acquiring; founded Fastpay in Dhaka in 2024." },
   { name: "Nadia Rahman", role: "Head of Engineering", bio: "Leads gateway integrations, POS architecture and platform reliability." },
-  { name: "Rathanak Kim", role: "POS Solutions Lead", bio: "Designs store workflows for retail, restaurant and pharmacy clients." },
+  { name: "Tanvir Ahmed", role: "POS Solutions Lead", bio: "Designs store workflows for retail, restaurant and pharmacy clients." },
   { name: "Imran Kabir", role: "Web & Design Lead", bio: "Runs UI/UX, front-end delivery and conversion optimisation." },
-  { name: "Sreymom Chea", role: "Client Success Manager", bio: "Onboarding, training and the voice on the other end of your support call." },
+  { name: "Farzana Akter", role: "Client Success Manager", bio: "Onboarding, training and the voice on the other end of your support call." },
   { name: "Arif Chowdhury", role: "Security & Compliance", bio: "Owns PCI alignment, audits and merchant risk reviews." },
 ];
 
