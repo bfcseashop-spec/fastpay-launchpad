@@ -10,33 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PaymentGatewayRouteImport } from './routes/payment-gateway'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PaymentGatewayRoute = PaymentGatewayRouteImport.update({
+  id: '/payment-gateway',
+  path: '/payment-gateway',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/payment-gateway': typeof PaymentGatewayRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/payment-gateway': typeof PaymentGatewayRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/payment-gateway': typeof PaymentGatewayRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/payment-gateway'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/payment-gateway'
+  id: '__root__' | '/' | '/payment-gateway'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PaymentGatewayRoute: typeof PaymentGatewayRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +58,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/payment-gateway': {
+      id: '/payment-gateway'
+      path: '/payment-gateway'
+      fullPath: '/payment-gateway'
+      preLoaderRoute: typeof PaymentGatewayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PaymentGatewayRoute: PaymentGatewayRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
