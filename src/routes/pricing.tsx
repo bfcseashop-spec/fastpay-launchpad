@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   CalendarClock,
@@ -236,8 +237,8 @@ function Pricing() {
             </thead>
             <tbody>
               {COMPARE_GROUPS.map((g) => (
-                <>
-                  <tr key={g.group} className="border-t border-border bg-accent/40">
+                <Fragment key={g.group}>
+                  <tr className="border-t border-border bg-accent/40">
                     <th
                       scope="colgroup"
                       colSpan={COMPARE_PLANS.length + 1}
@@ -273,7 +274,7 @@ function Pricing() {
                       ))}
                     </tr>
                   ))}
-                </>
+                </Fragment>
               ))}
             </tbody>
           </table>
