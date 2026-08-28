@@ -240,7 +240,7 @@ function Home() {
       {/* Stats */}
       <Section tone="navy">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <StatCard value="250+" label="Businesses served" />
+          <StatCard value="70+" label="Businesses served" />
           <StatCard value="10,000+" label="Transactions processed daily" />
           <StatCard value="99.9%" label="Platform uptime" />
           <StatCard value="24/7" label="Support coverage" />
