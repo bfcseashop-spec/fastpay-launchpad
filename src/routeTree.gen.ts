@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PaymentGatewayRouteImport } from './routes/payment-gateway'
+import { Route as PosSystemRouteImport } from './routes/pos-system'
+import { Route as WebDevelopmentRouteImport } from './routes/web-development'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +24,49 @@ const PaymentGatewayRoute = PaymentGatewayRouteImport.update({
   path: '/payment-gateway',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PosSystemRoute = PosSystemRouteImport.update({
+  id: '/pos-system',
+  path: '/pos-system',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WebDevelopmentRoute = WebDevelopmentRouteImport.update({
+  id: '/web-development',
+  path: '/web-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/payment-gateway': typeof PaymentGatewayRoute
+  '/pos-system': typeof PosSystemRoute
+  '/web-development': typeof WebDevelopmentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/payment-gateway': typeof PaymentGatewayRoute
+  '/pos-system': typeof PosSystemRoute
+  '/web-development': typeof WebDevelopmentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/payment-gateway': typeof PaymentGatewayRoute
+  '/pos-system': typeof PosSystemRoute
+  '/web-development': typeof WebDevelopmentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/payment-gateway'
+  fullPaths: '/' | '/payment-gateway' | '/pos-system' | '/web-development'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/payment-gateway'
-  id: '__root__' | '/' | '/payment-gateway'
+  to: '/' | '/payment-gateway' | '/pos-system' | '/web-development'
+  id: '__root__' | '/' | '/payment-gateway' | '/pos-system' | '/web-development'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PaymentGatewayRoute: typeof PaymentGatewayRoute
+  PosSystemRoute: typeof PosSystemRoute
+  WebDevelopmentRoute: typeof WebDevelopmentRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +85,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PaymentGatewayRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pos-system': {
+      id: '/pos-system'
+      path: '/pos-system'
+      fullPath: '/pos-system'
+      preLoaderRoute: typeof PosSystemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/web-development': {
+      id: '/web-development'
+      path: '/web-development'
+      fullPath: '/web-development'
+      preLoaderRoute: typeof WebDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PaymentGatewayRoute: PaymentGatewayRoute,
+  PosSystemRoute: PosSystemRoute,
+  WebDevelopmentRoute: WebDevelopmentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
