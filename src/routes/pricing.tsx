@@ -158,7 +158,17 @@ function Pricing() {
         eyebrow="Pricing"
         title="Simple, Flexible Pricing for Every Business"
         description="Rent it monthly or own it outright. Where pricing depends on scope, we quote openly and quickly — usually within one business day."
-      />
+      >
+        <Button asChild variant="hero" size="xl">
+          <Link to="/contact">Request a Quote</Link>
+        </Button>
+        <Button asChild variant="heroOutline" size="xl">
+          <a href={COMPANY.whatsapp} target="_blank" rel="noreferrer">
+            Talk to Sales on WhatsApp
+          </a>
+        </Button>
+      </PageHero>
+
 
       <Section>
         <div className="grid gap-6 lg:grid-cols-3">
