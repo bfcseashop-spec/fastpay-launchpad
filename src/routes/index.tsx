@@ -2,17 +2,24 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   BadgeCheck,
+  BarChart3,
   Check,
   Clock3,
+  Code2,
   CreditCard,
   Globe,
   Headphones,
   Layers,
   Mail,
+  Megaphone,
   MonitorSmartphone,
+  Palette,
   Phone,
+  Search,
   ShieldCheck,
+  ShoppingCart,
   Store,
+  TrendingUp,
   Wallet,
   Zap,
 } from "lucide-react";
@@ -136,6 +143,89 @@ const STEPS = [
   { title: "Setup", description: "We configure your merchant account, POS hardware or project workspace and share a clear timeline." },
   { title: "Integration", description: "Our engineers integrate, test in sandbox and train your team before anything touches live money." },
   { title: "Go Live", description: "You launch with monitoring, documentation and 24/7 support from day one." },
+];
+
+const OFFERINGS = [
+  {
+    icon: ShoppingCart,
+    title: "POS (Point of Sale) System",
+    bangla: "সহজ, স্মার্ট ও নির্ভরযোগ্য বিক্রয় ব্যবস্থাপনা",
+    description:
+      "সম্পূর্ণ কাস্টমাইজড POS সলিউশন — সেলস, ইনভেন্টরি, স্টক ও কাস্টমার ম্যানেজমেন্ট এক জায়গায়। রিয়েল-টাইম রিপোর্টিং, মাল্টি-ব্র্যাঞ্চ সাপোর্ট ও ইউজার-ফ্রেন্ডলি ইন্টারফেস।",
+    to: "/pos-system",
+  },
+  {
+    icon: CreditCard,
+    title: "Payment Gateway Integration",
+    bangla: "নিরাপদ ও দ্রুত পেমেন্ট সলিউশন",
+    description:
+      "আপনার ওয়েবসাইট বা অ্যাপে bKash, Nagad, Rocket, Visa, Mastercard, SSLCommerz-সহ সব জনপ্রিয় গেটওয়ে — এনক্রিপশন ও ফ্রড প্রোটেকশনসহ সম্পূর্ণ নিরাপদ।",
+    to: "/payment-gateway",
+  },
+  {
+    icon: Palette,
+    title: "UI/UX Design",
+    bangla: "যা দেখতে সুন্দর, ব্যবহার করতেও সহজ",
+    description:
+      "মডার্ন, রেসপনসিভ ও ইউজার-ফ্রেন্ডলি ডিজাইন — ওয়্যারফ্রেম থেকে ফাইনাল প্রোটোটাইপ পর্যন্ত প্রতিটি ধাপে ইউজার এক্সপেরিয়েন্স-কেন্দ্রিক চিন্তা, যা ভিজিটরকে কাস্টমারে রূপান্তরিত করে।",
+    to: "/web-development",
+  },
+  {
+    icon: Search,
+    title: "SEO Optimized Website",
+    bangla: "গুগলে আপনার বিজনেসকে সবার আগে নিয়ে আসুন",
+    description:
+      "SEO ফ্রেন্ডলি স্ট্রাকচার, ফাস্ট লোডিং স্পিড, প্রপার মেটা ট্যাগ, কিওয়ার্ড অপ্টিমাইজেশন ও মোবাইল ফ্রেন্ডলি ডিজাইন — গুগল সার্চে র‍্যাঙ্ক ও অর্গানিক ট্রাফিক বাড়বে।",
+    to: "/web-development",
+  },
+  {
+    icon: Globe,
+    title: "Custom Website Development",
+    bangla: "আপনার বিজনেসের জন্য একদম নিজস্ব ডিজাইনে ওয়েবসাইট",
+    description:
+      "টেমপ্লেট নয় — আপনার ব্র্যান্ড ও চাহিদা অনুযায়ী সম্পূর্ণ কাস্টম ওয়েবসাইট। ই-কমার্স, পোর্টফোলিও, কর্পোরেট, বুকিং সিস্টেম — ডিজাইন থেকে ডেভেলপমেন্ট পর্যন্ত সব।",
+    to: "/web-development",
+  },
+  {
+    icon: Megaphone,
+    title: "Full Marketing Support",
+    bangla: "শুধু ওয়েবসাইট নয়, ব্র্যান্ডিং ও প্রচারেও পূর্ণ সহযোগিতা",
+    description:
+      "সোশ্যাল মিডিয়া মার্কেটিং, ফেসবুক/গুগল অ্যাড ক্যাম্পেইন, কন্টেন্ট স্ট্র্যাটেজি ও ব্র্যান্ডিং — আপনার বিজনেস মানুষের কাছে পৌঁছাবে ও চেনা হয়ে উঠবে।",
+    to: "/contact",
+  },
+  {
+    icon: TrendingUp,
+    title: "Increase Sales — Smart Ideas",
+    bangla: "শুধু ওয়েবসাইট নয়, বিক্রি বাড়ানোর স্ট্র্যাটেজিও দেই",
+    description:
+      "আপনার বিজনেস মডেল বিশ্লেষণ করে কার্যকর আইডিয়া ও স্ট্র্যাটেজি — কনভার্শন অপ্টিমাইজেশন থেকে কাস্টমার রিটেনশন পর্যন্ত, আপনার গ্রোথ ইঞ্জিন হিসেবে।",
+    to: "/contact",
+  },
+  {
+    icon: Code2,
+    title: "Development (Web & App)",
+    bangla: "শক্তিশালী ও স্কেলেবল প্রযুক্তি দিয়ে তৈরি",
+    description:
+      "আধুনিক টেকনোলজিতে ফাস্ট, সিকিউর ও স্কেলেবল ওয়েব ও অ্যাপ সলিউশন — ফ্রন্টএন্ড থেকে ব্যাকএন্ড, ডাটাবেজ থেকে সার্ভার ম্যানেজমেন্ট পর্যন্ত সব এক্সপার্ট হাতে।",
+    to: "/web-development",
+  },
+  {
+    icon: BarChart3,
+    title: "Analytics & Reporting",
+    bangla: "ডেটা দেখে সিদ্ধান্ত নিন, অনুমানে নয়",
+    description:
+      "ভিজিটর, সেলস ও কাস্টমার বিহেভিয়ারের বিস্তারিত অ্যানালিটিক্স ড্যাশবোর্ড — কোথায় কী কাজ করছে বুঝে নিন সঠিক সিদ্ধান্ত।",
+    to: "/contact",
+  },
+];
+
+const WHY_US_BN = [
+  "৩৬০° সম্পূর্ণ ডিজিটাল সলিউশন — এক জায়গায় সবকিছু",
+  "অভিজ্ঞ ও দক্ষ টিম",
+  "আধুনিক প্রযুক্তি ও ট্রেন্ড অনুসরণ",
+  "পোস্ট-লঞ্চ সাপোর্ট ও মেইনটেনেন্স",
+  "আপনার বিজনেস গ্রোথই আমাদের লক্ষ্য",
 ];
 
 const STATS = [
@@ -362,6 +452,49 @@ function Home() {
               </Link>
             </div>
           ))}
+        </div>
+      </DarkSection>
+
+      {/* What we offer — full service grid */}
+      <DarkSection className="border-t border-navy-foreground/5">
+        <DarkHeading
+          eyebrow="What We Offer"
+          title="আমাদের সার্ভিসসমূহ"
+          description="আপনার বিজনেসকে ডিজিটাল যুগে এগিয়ে নিয়ে যেতে আমরা প্রতিটি ধাপে আপনার পাশে আছি।"
+        />
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {OFFERINGS.map((o) => (
+            <div
+              key={o.title}
+              className="group flex flex-col rounded-2xl border border-navy-foreground/10 bg-navy/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-emerald/40"
+            >
+              <span className="flex size-11 items-center justify-center rounded-xl border border-emerald/30 bg-gradient-to-br from-emerald/20 to-emerald/5 text-emerald transition-colors group-hover:bg-emerald group-hover:text-navy-deep">
+                <o.icon className="size-5" aria-hidden="true" />
+              </span>
+              <h3 className="mt-4 text-lg font-bold text-navy-foreground">{o.title}</h3>
+              <p className="mt-1 text-sm font-semibold text-bronze">{o.bangla}</p>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-navy-muted">{o.description}</p>
+              <Link
+                to={o.to}
+                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald transition-all group-hover:gap-2.5"
+              >
+                বিস্তারিত দেখুন <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </div>
+          ))}
+        </div>
+        <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-navy-foreground/10 bg-navy/60 p-8 backdrop-blur-xl">
+          <h3 className="text-center font-display text-xl font-bold text-navy-foreground">
+            🚀 কেন আমাদের বেছে নেবেন?
+          </h3>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+            {WHY_US_BN.map((item) => (
+              <li key={item} className="flex items-start gap-2.5 text-sm text-navy-muted">
+                <Check className="mt-0.5 size-4 shrink-0 text-emerald" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </DarkSection>
 
