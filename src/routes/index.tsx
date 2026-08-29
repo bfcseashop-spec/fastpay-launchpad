@@ -167,7 +167,7 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <div className="bg-abyss text-navy-foreground">
+    <div className="bg-mesh-8 text-navy-foreground">
       {/* Hero */}
       <section className="relative overflow-hidden px-6 pt-20 pb-16 text-center md:pt-28">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-glow-cyan" />
