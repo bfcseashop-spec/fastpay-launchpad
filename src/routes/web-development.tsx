@@ -17,6 +17,7 @@ import { Faq } from "@/components/site/Faq";
 import { TestimonialCarousel } from "@/components/site/Testimonials";
 import { CTABanner } from "@/components/site/CTABanner";
 import studioImage from "@/assets/photo-web-studio.jpg";
+import responsiveImage from "@/assets/photo-web-responsive.jpg";
 
 export const Route = createFileRoute("/web-development")({
   head: () => ({
@@ -194,7 +195,35 @@ function WebDevelopment() {
         </div>
       </Section>
 
+      <Section>
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <img
+            src={responsiveImage}
+            alt="An e-commerce website built by Fastpay shown on a laptop and mobile phone"
+            width={1280}
+            height={860}
+            loading="lazy"
+            className="w-full rounded-3xl border border-border object-cover shadow-lift"
+          />
+          <div>
+            <SectionHeading
+              eyebrow="What you receive"
+              title="A site that works as hard on mobile as it does on desktop"
+              description="Every project ships responsive, fast and search-ready — with payment gateway and POS integration available from day one."
+              align="left"
+            />
+            <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+              <li>· Business website from ৳25,000 · e-commerce store from ৳60,000</li>
+              <li>· Free domain, 1 year hosting and SSL included with every package</li>
+              <li>· Full source code and admin access handed over — you own everything</li>
+              <li>· Delivery in 7–21 working days depending on package and page count</li>
+            </ul>
+          </div>
+        </div>
+      </Section>
+
       <Section tone="soft">
+
         <SectionHeading
           eyebrow="Portfolio"
           title="Recent work"
