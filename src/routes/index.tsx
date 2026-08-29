@@ -145,6 +145,9 @@ const STATS = [
   { value: "24/7", label: "Support coverage" },
 ];
 
+const OG_IMAGE =
+  "https://id-preview--a9763442-ff49-4098-9ed1-d969e3ae1267.lovable.app/og-home.jpg";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
