@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
+  ArrowRight,
   BarChart3,
   BookOpen,
-  Code2,
   Check,
+  Code2,
   CreditCard,
   FileCheck2,
   Globe2,
@@ -14,7 +15,7 @@ import {
   Timer,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PageHero, Section, SectionHeading } from "@/components/site/Section";
+import { Section, SectionHeading } from "@/components/site/Section";
 import { FeatureCard, StatCard, StepCard } from "@/components/site/Cards";
 import { TestimonialCarousel } from "@/components/site/Testimonials";
 import { Faq } from "@/components/site/Faq";
@@ -22,6 +23,7 @@ import { CTABanner } from "@/components/site/CTABanner";
 import { COMPANY } from "@/lib/site";
 import caseImage from "@/assets/photo-payment-checkout.jpg";
 import merchantImage from "@/assets/photo-gateway-merchant.jpg";
+import heroDashboard from "@/assets/hero-payment-dashboard.jpg";
 
 export const Route = createFileRoute("/payment-gateway")({
   head: () => ({
@@ -38,18 +40,20 @@ export const Route = createFileRoute("/payment-gateway")({
         content:
           "Secure payment gateway with instant settlement, fraud protection and developer-friendly APIs.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: PaymentGateway,
 });
 
 const METHODS = [
-  { icon: CreditCard, label: "Visa & Mastercard" },
-  { icon: Smartphone, label: "bKash" },
-  { icon: Smartphone, label: "Nagad" },
-  { icon: Smartphone, label: "Rocket" },
-  { icon: Landmark, label: "Bank Transfer" },
-  { icon: Globe2, label: "International Cards" },
+  { icon: CreditCard, label: "Visa & Mastercard", color: "#1A1F71" },
+  { icon: Smartphone, label: "bKash", color: "#E2136E" },
+  { icon: Smartphone, label: "Nagad", color: "#F7931E" },
+  { icon: Smartphone, label: "Rocket", color: "#8C3494" },
+  { icon: Landmark, label: "Bank Transfer", color: "#10B981" },
+  { icon: Globe2, label: "International Cards", color: "#3B82F6" },
 ];
 
 const FEATURES = [
@@ -141,46 +145,216 @@ const FAQS = [
   { q: "Can I test before going live?", a: "Absolutely. Every merchant gets sandbox keys and test cards so you can validate the full checkout and refund flow before launch." },
 ];
 
+const PRICING_TIERS = [
+  {
+    name: "Rent Monthly",
+    price: "৳3,500",
+    period: "/month",
+    tag: "Low upfront",
+    features: [
+      "Full gateway + dashboard access",
+      "bKash, Nagad, Rocket, cards & bank transfer",
+      "Free integration support",
+      "T+1 settlement to your bank",
+      "Monthly contract, cancel anytime",
+    ],
+    cta: "Rent Gateway",
+    highlight: false,
+  },
+  {
+    name: "Buy Outright",
+    price: "৳85,000",
+    period: " one-time",
+    tag: "Best value",
+    features: [
+      "Lifetime gateway license",
+      "1 year premium support included",
+      "Custom checkout branding",
+      "Dedicated sandbox environment",
+      "Priority phone & WhatsApp support",
+    ],
+    cta: "Buy Gateway",
+    highlight: true,
+  },
+];
+
 function PaymentGateway() {
   return (
     <>
-      <PageHero
-        eyebrow="Payment Gateway"
-        title="Accept Payments Anywhere, Anytime"
-        description="One secure integration for cards, mobile banking and wallets — with real-time reporting, fraud protection and settlement you can plan around."
-      >
-        <Button asChild variant="hero" size="xl">
-          <Link to="/contact">Request API Access</Link>
-        </Button>
-        <Button asChild variant="heroOutline" size="xl">
-          <a href={COMPANY.phoneHref}>Talk to Sales</a>
-        </Button>
-      </PageHero>
+      {/* Hero — dark fintech professional */}
+      <section className="relative overflow-hidden bg-mesh-8 px-6 pt-20 pb-10 text-center md:pt-24">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-glow-cyan" />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-32 left-1/2 size-[30rem] -translate-x-1/2 rounded-full bg-emerald/15 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute top-40 -right-24 size-[24rem] rounded-full bg-primary/15 blur-3xl"
+        />
 
+        <div className="relative mx-auto max-w-4xl reveal">
+          <span className="inline-flex items-center gap-2 rounded-full border border-navy-foreground/10 bg-navy/60 px-4 py-1.5 text-xs font-semibold tracking-wide text-emerald uppercase backdrop-blur-xl">
+            <span className="size-2 animate-pulse rounded-full bg-emerald" />
+            Bangladesh's Smartest Payment Gateway
+          </span>
+          <h1 className="mt-6 text-5xl leading-[1.05] font-extrabold tracking-tight md:text-7xl">
+            <span className="text-gradient-gold">Accept Every Payment</span>
+            <br />
+            <span className="text-navy-foreground">In One Integration</span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-navy-muted">
+            Cards, bKash, Nagad, Rocket and bank transfers — all through a single Fastpay gateway.
+            Next-day settlement, bank-grade security and a merchant dashboard you can actually trust.
+          </p>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button asChild size="xl" className="bg-gradient-emerald font-bold text-navy-deep shadow-glow-emerald hover:opacity-90">
+              <Link to="/contact">
+                Get API Access <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="xl"
+              variant="outline"
+              className="border-navy-foreground/20 bg-transparent font-bold text-navy-foreground hover:bg-navy-foreground/5 hover:text-navy-foreground"
+            >
+              <a href={COMPANY.phoneHref}>Talk to Sales</a>
+            </Button>
+          </div>
+          <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-navy-muted">
+            <span className="flex items-center gap-2">
+              <ShieldCheck className="size-4 text-emerald" aria-hidden="true" /> PCI DSS aligned
+            </span>
+            <span className="flex items-center gap-2">
+              <Timer className="size-4 text-emerald" aria-hidden="true" /> T+1 settlement
+            </span>
+            <span className="flex items-center gap-2">
+              <Smartphone className="size-4 text-emerald" aria-hidden="true" /> bKash/Nagad ready
+            </span>
+          </div>
+        </div>
+
+        {/* Hero visual */}
+        <div className="relative mx-auto mt-16 max-w-5xl">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 -z-0 rounded-[2rem] bg-emerald/10 blur-3xl"
+          />
+          <div className="relative rounded-[2rem] border border-navy-foreground/10 bg-navy/40 p-2 shadow-lift backdrop-blur-xl">
+            <img
+              src={heroDashboard}
+              alt="Fastpay payment gateway merchant dashboard showing transactions, analytics and checkout flow"
+              width={1600}
+              height={1024}
+              className="w-full rounded-3xl"
+            />
+          </div>
+
+          {/* Floating payment method cards */}
+          <div className="relative z-10 mx-auto -mt-16 grid max-w-4xl grid-cols-2 gap-3 px-4 sm:grid-cols-3 lg:grid-cols-6">
+            {METHODS.map((m) => (
+              <div
+                key={m.label}
+                className="group rounded-2xl border border-navy-foreground/10 bg-navy/70 p-4 text-center shadow-lift backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-emerald/40"
+              >
+                <span
+                  className="mx-auto flex size-10 items-center justify-center rounded-full text-navy-foreground transition-colors group-hover:text-navy-deep"
+                  style={{ backgroundColor: `${m.color}25` }}
+                >
+                  <m.icon className="size-5" style={{ color: m.color }} aria-hidden="true" />
+                </span>
+                <span className="mt-2 block text-xs font-semibold text-navy-foreground">
+                  {m.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Stats bar */}
+        <div className="relative mx-auto mt-14 max-w-4xl">
+          <div className="flex flex-col items-center justify-between gap-6 rounded-2xl border border-navy-foreground/10 bg-navy/60 px-8 py-6 shadow-lift backdrop-blur-xl sm:flex-row">
+            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+              {STATS.map((s) => (
+                <div key={s.label} className="text-center">
+                  <p className="font-display text-2xl font-extrabold text-emerald md:text-3xl">{s.value}</p>
+                  <p className="text-xs tracking-wide text-navy-muted uppercase">{s.label}</p>
+                </div>
+              ))}
+            </div>
+            <Button asChild className="bg-gradient-emerald font-bold text-navy-deep shadow-glow-emerald hover:opacity-90">
+              <Link to="/contact">
+                Get Free Quote <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Rent or Buy — conversion-focused */}
       <Section>
         <SectionHeading
-          eyebrow="Supported Methods"
-          title="Every way your customers want to pay"
-          description="Cards, mobile financial services and bank transfers — all through a single Fastpay account."
+          eyebrow="Simple Pricing"
+          title="Rent monthly or buy once — you choose"
+          description="No hidden minimums. Start accepting payments with a plan that fits your cash flow."
         />
-        <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-          {METHODS.map((m) => (
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          {PRICING_TIERS.map((tier) => (
             <div
-              key={m.label}
-              className="flex flex-col items-center gap-3 rounded-2xl border border-border bg-card p-6 text-center shadow-card transition-transform hover:-translate-y-1"
+              key={tier.name}
+              className={`relative rounded-3xl border p-8 shadow-lift transition-all hover:-translate-y-1 ${
+                tier.highlight
+                  ? "border-emerald/40 bg-gradient-to-b from-navy/80 to-navy/50"
+                  : "border-border bg-card"
+              }`}
             >
-              <m.icon className="size-7 text-primary" aria-hidden="true" />
-              <span className="text-sm font-semibold">{m.label}</span>
+              {tier.highlight && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-emerald px-3 py-1 text-xs font-bold text-navy-deep">
+                  {tier.tag}
+                </span>
+              )}
+              <div className="flex items-end gap-2">
+                <p className="text-4xl font-extrabold tracking-tight">{tier.price}</p>
+                <p className="text-sm text-muted-foreground">{tier.period}</p>
+              </div>
+              <h3 className="mt-2 text-xl font-bold">{tier.name}</h3>
+              <ul className="mt-6 space-y-3">
+                {tier.features.map((f) => (
+                  <li key={f} className="flex gap-3 text-sm text-muted-foreground">
+                    <Check className="mt-0.5 size-4 shrink-0 text-emerald" aria-hidden="true" />
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button
+                asChild
+                size="lg"
+                className={`mt-8 w-full font-bold ${
+                  tier.highlight
+                    ? "bg-gradient-emerald text-navy-deep shadow-glow-emerald hover:opacity-90"
+                    : ""
+                }`}
+              >
+                <Link to="/contact">{tier.cta}</Link>
+              </Button>
             </div>
           ))}
         </div>
+        <p className="mt-6 text-center text-sm text-muted-foreground">
+          Transaction fees are negotiated based on your monthly volume.{' '}
+          <Link to="/pricing" className="font-semibold text-primary hover:underline">
+            See full pricing
+          </Link>
+        </p>
       </Section>
 
-      <Section>
+      {/* Real world image section */}
+      <Section tone="soft">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <img
             src={merchantImage}
-            alt="Customer paying by card on a Fastpay payment terminal at a shop counter in Dhaka"
+            alt="Bangladeshi shopkeeper accepting a card payment through a Fastpay terminal at a retail counter"
             width={1280}
             height={860}
             loading="lazy"
@@ -188,23 +362,43 @@ function PaymentGateway() {
           />
           <div>
             <SectionHeading
-              eyebrow="In the real world"
+              eyebrow="Built for Bangladesh"
               title="Take payments the way your customers already pay"
-              description="Cards, bKash, Nagad, Rocket and internet banking — all through one checkout, one dashboard and one settlement report. Rent the gateway monthly or buy a full merchant setup outright."
+              description="Cards, bKash, Nagad, Rocket and internet banking — all through one checkout, one dashboard and one settlement report."
               align="left"
             />
             <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
-              <li>· Onboarding and merchant approval usually done within 3–5 working days</li>
-              <li>· Next-day (T+1) settlement straight to your business bank account</li>
-              <li>· 2.0%–2.5% per successful transaction, no hidden monthly minimum</li>
-              <li>· Free integration support for WooCommerce, Shopify, Laravel and custom apps</li>
+              <li className="flex gap-2">
+                <Check className="mt-0.5 size-4 shrink-0 text-emerald" aria-hidden="true" />
+                Onboarding and merchant approval usually done within 3–5 working days
+              </li>
+              <li className="flex gap-2">
+                <Check className="mt-0.5 size-4 shrink-0 text-emerald" aria-hidden="true" />
+                Next-day (T+1) settlement straight to your business bank account
+              </li>
+              <li className="flex gap-2">
+                <Check className="mt-0.5 size-4 shrink-0 text-emerald" aria-hidden="true" />
+                2.0%–2.5% per successful transaction, no hidden monthly minimum
+              </li>
+              <li className="flex gap-2">
+                <Check className="mt-0.5 size-4 shrink-0 text-emerald" aria-hidden="true" />
+                Free integration support for WooCommerce, Shopify, Laravel and custom apps
+              </li>
             </ul>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button asChild className="bg-gradient-emerald font-bold text-navy-deep shadow-glow-emerald hover:opacity-90">
+                <Link to="/contact">Start Accepting Payments</Link>
+              </Button>
+              <Button asChild variant="outline">
+                <a href={COMPANY.phoneHref}>Call Sales</a>
+              </Button>
+            </div>
           </div>
         </div>
       </Section>
 
-      <Section tone="soft">
-
+      {/* Features */}
+      <Section>
         <SectionHeading
           eyebrow="Features"
           title="Everything a modern merchant expects"
@@ -216,7 +410,8 @@ function PaymentGateway() {
         </div>
       </Section>
 
-      <Section>
+      {/* Integration steps */}
+      <Section tone="soft">
         <SectionHeading eyebrow="Integration" title="Four steps to your first live payment" />
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s, i) => (
@@ -258,9 +453,9 @@ function PaymentGateway() {
   },
   body: JSON.stringify({
     amount: 4500,
-    currency: "USD",
+    currency: "BDT",
     reference: "ORDER-10294",
-    customer: { name: "Sokha Chan", email: "sokha@example.com" },
+    customer: { name: "Rakib Hasan", email: "rakib@example.com" },
     success_url: "https://yourstore.com/thank-you",
     cancel_url: "https://yourstore.com/cart",
   }),
@@ -273,6 +468,7 @@ return Response.redirect(checkout_url, 303);`}</code>
         </div>
       </Section>
 
+      {/* Transaction fees */}
       <Section>
         <SectionHeading
           eyebrow="Transaction Fees"
@@ -305,6 +501,7 @@ return Response.redirect(checkout_url, 303);`}</code>
         </p>
       </Section>
 
+      {/* Security & Compliance */}
       <Section tone="soft">
         <SectionHeading
           eyebrow="Security & Compliance"
@@ -332,6 +529,7 @@ return Response.redirect(checkout_url, 303);`}</code>
         </div>
       </Section>
 
+      {/* Platform Integrations */}
       <Section>
         <SectionHeading
           eyebrow="Platform Integrations"
@@ -353,21 +551,8 @@ return Response.redirect(checkout_url, 303);`}</code>
         </div>
       </Section>
 
-      <Section tone="navy">
-        <SectionHeading
-          eyebrow="Platform Performance"
-          title="Numbers our merchants see every month"
-          description="Figures from our production gateway across the last 90 days of merchant traffic."
-          light
-        />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {STATS.map((s) => (
-            <StatCard key={s.label} {...s} />
-          ))}
-        </div>
-      </Section>
-
-      <Section>
+      {/* Case study */}
+      <Section tone="soft">
         <SectionHeading
           eyebrow="Case Study"
           title="Bengal Mart Online: 41% fewer failed checkouts"
@@ -386,12 +571,14 @@ return Response.redirect(checkout_url, 303);`}</code>
         </div>
       </Section>
 
-      <Section tone="soft">
+      {/* Merchant Feedback */}
+      <Section>
         <SectionHeading eyebrow="Merchant Feedback" title="Trusted by teams processing daily" />
         <TestimonialCarousel />
       </Section>
 
-      <Section>
+      {/* FAQ */}
+      <Section tone="soft">
         <SectionHeading eyebrow="FAQ" title="Payment gateway questions, answered" />
         <Faq items={FAQS} />
       </Section>
