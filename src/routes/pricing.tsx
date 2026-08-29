@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { canonical, seoMeta } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   CalendarClock,
@@ -23,20 +24,20 @@ import { COMPANY } from "@/lib/site";
 
 export const Route = createFileRoute("/pricing")({
   head: () => ({
-    meta: [
-      { title: "Pricing | Fastpay IT Solution Ltd" },
-      {
-        name: "description",
-        content:
-          "Transparent pricing from Fastpay IT Solution Ltd: POS rent ৳4,000/month or buy ৳120,000, plus negotiable payment gateway and website development quotes.",
-      },
-      { property: "og:title", content: "Simple, Flexible Pricing | Fastpay IT Solution Ltd" },
-      {
-        property: "og:description",
-        content:
-          "Rent or buy options for POS, and tailored quotes for payment gateway and website projects.",
-      },
-    ],
+    meta: seoMeta({
+      title: "Pricing | Fastpay IT Solution Ltd",
+      description:
+        "Transparent pricing: POS rent ৳4,000/month or buy ৳120,000, payment gateway rent ৳3,500/month, plus website packages and custom quotes.",
+      ogTitle: "Simple, Flexible Pricing — Rent or Buy",
+      ogDescription:
+        "Compare plans side by side: POS, payment gateway and website packages with clear contract, setup and support terms.",
+      path: "/pricing",
+      image: "/og-pricing.jpg",
+      imageWidth: 1280,
+      imageHeight: 1024,
+      imageAlt: "Fastpay pricing plans for POS, payment gateway and websites",
+    }),
+    links: canonical("/pricing"),
   }),
   component: Pricing,
 });

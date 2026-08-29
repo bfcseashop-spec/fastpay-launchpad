@@ -1,3 +1,4 @@
+import { canonical, seoMeta } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { Compass, Eye, Handshake, MapPin, Target } from "lucide-react";
 import { PageHero, Section, SectionHeading } from "@/components/site/Section";
@@ -8,20 +9,20 @@ import officeImage from "@/assets/photo-team-office.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
-    meta: [
-      { title: "About Us | Fastpay IT Solution Ltd" },
-      {
-        name: "description",
-        content:
-          "Meet Fastpay IT Solution Ltd — the team behind payment gateway integrations, POS rollouts and websites for 70+ businesses since 2024.",
-      },
-      { property: "og:title", content: "About Fastpay IT Solution Ltd" },
-      {
-        property: "og:description",
-        content:
-          "Our story, mission, team and milestones — a local IT partner with fintech-grade standards.",
-      },
-    ],
+    meta: seoMeta({
+      title: "About Us | Fastpay IT Solution Ltd",
+      description:
+        "Meet Fastpay IT Solution Ltd — the team behind payment gateway integrations, POS rollouts and websites for 70+ businesses since 2024.",
+      ogTitle: "About Fastpay IT Solution Ltd",
+      ogDescription:
+        "Our story, mission, team and milestones — a Dhaka-based IT partner with fintech-grade standards, serving 70+ businesses.",
+      path: "/about",
+      image: "/og-about.jpg",
+      imageWidth: 1200,
+      imageHeight: 800,
+      imageAlt: "Fastpay IT Solution team working in their Dhaka office",
+    }),
+    links: canonical("/about"),
   }),
   component: About,
 });
