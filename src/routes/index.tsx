@@ -145,6 +145,9 @@ const STATS = [
   { value: "24/7", label: "Support coverage" },
 ];
 
+const OG_IMAGE =
+  "https://id-preview--a9763442-ff49-4098-9ed1-d969e3ae1267.lovable.app/og-home.jpg";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -154,12 +157,26 @@ export const Route = createFileRoute("/")({
         content:
           "Payment gateway integration, smart POS systems and custom website development from Fastpay IT Solution Ltd. Secure, fast to launch and supported 24/7.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Fastpay IT Solution Ltd" },
       { property: "og:title", content: "Fastpay IT Solution Ltd | Your Complete IT & Payment Partner" },
       {
         property: "og:description",
         content:
           "Payment gateway, POS systems and website development for growing businesses. Talk to Fastpay today.",
       },
+      { property: "og:image", content: `${OG_IMAGE}` },
+      { property: "og:image:width", content: "1600" },
+      { property: "og:image:height", content: "1024" },
+      { property: "og:image:alt", content: "Fastpay payment dashboard on a laptop with mobile payment app" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Fastpay IT Solution Ltd | Your Complete IT & Payment Partner" },
+      {
+        name: "twitter:description",
+        content:
+          "Payment gateway, POS systems and website development for growing businesses. Talk to Fastpay today.",
+      },
+      { name: "twitter:image", content: `${OG_IMAGE}` },
     ],
   }),
   component: Home,
