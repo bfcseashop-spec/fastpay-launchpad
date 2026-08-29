@@ -19,6 +19,7 @@ import { CTABanner } from "@/components/site/CTABanner";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { COMPANY } from "@/lib/site";
 import storeImage from "@/assets/photo-pos-store.jpg";
+import restaurantImage from "@/assets/photo-pos-restaurant.jpg";
 
 export const Route = createFileRoute("/pos-system")({
   head: () => ({
@@ -187,7 +188,35 @@ function PosSystem() {
         </div>
       </Section>
 
+      <Section>
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="order-2 lg:order-1">
+            <SectionHeading
+              eyebrow="Rent or buy"
+              title="Start for ৳4,000 a month, or own the system for ৳120,000"
+              description="Renting keeps your upfront cost low and includes software, updates, cloud backups and 24/7 support. Buying gives you a permanent licence with one year of free support and updates."
+              align="left"
+            />
+            <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+              <li>· Rent: ৳4,000/month per outlet — cancel or upgrade any month, no lock-in</li>
+              <li>· Buy: ৳120,000 one-time per outlet — lifetime licence, 1 year support included</li>
+              <li>· Hardware bundle (terminal, printer, scanner, cash drawer) available separately</li>
+              <li>· Free catalogue import, installation and staff training in both options</li>
+            </ul>
+          </div>
+          <img
+            src={restaurantImage}
+            alt="Restaurant staff taking an order on a Fastpay touchscreen POS with receipt printer and cash drawer"
+            width={1280}
+            height={860}
+            loading="lazy"
+            className="order-1 w-full rounded-3xl border border-border object-cover shadow-lift lg:order-2"
+          />
+        </div>
+      </Section>
+
       <Section tone="soft">
+
         <SectionHeading eyebrow="Features" title="Feature highlights" />
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((f) => (

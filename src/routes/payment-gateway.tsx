@@ -21,6 +21,7 @@ import { Faq } from "@/components/site/Faq";
 import { CTABanner } from "@/components/site/CTABanner";
 import { COMPANY } from "@/lib/site";
 import caseImage from "@/assets/photo-payment-checkout.jpg";
+import merchantImage from "@/assets/photo-gateway-merchant.jpg";
 
 export const Route = createFileRoute("/payment-gateway")({
   head: () => ({
@@ -175,7 +176,35 @@ function PaymentGateway() {
         </div>
       </Section>
 
+      <Section>
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <img
+            src={merchantImage}
+            alt="Customer paying by card on a Fastpay payment terminal at a shop counter in Dhaka"
+            width={1280}
+            height={860}
+            loading="lazy"
+            className="w-full rounded-3xl border border-border object-cover shadow-lift"
+          />
+          <div>
+            <SectionHeading
+              eyebrow="In the real world"
+              title="Take payments the way your customers already pay"
+              description="Cards, bKash, Nagad, Rocket and internet banking — all through one checkout, one dashboard and one settlement report. Rent the gateway monthly or buy a full merchant setup outright."
+              align="left"
+            />
+            <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+              <li>· Onboarding and merchant approval usually done within 3–5 working days</li>
+              <li>· Next-day (T+1) settlement straight to your business bank account</li>
+              <li>· 2.0%–2.5% per successful transaction, no hidden monthly minimum</li>
+              <li>· Free integration support for WooCommerce, Shopify, Laravel and custom apps</li>
+            </ul>
+          </div>
+        </div>
+      </Section>
+
       <Section tone="soft">
+
         <SectionHeading
           eyebrow="Features"
           title="Everything a modern merchant expects"
