@@ -44,6 +44,8 @@
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
   --color-cyan: var(--cyan);
+  --color-bronze: var(--bronze);
+  --color-abyss: var(--abyss);
   --color-surface: var(--surface);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
@@ -78,6 +80,9 @@
   --brand: oklch(0.55 0.22 262);
   --brand-foreground: oklch(0.99 0 0);
   --cyan: oklch(0.75 0.13 205);
+  /* Logo bronze + abyss page base (home redesign) */
+  --bronze: oklch(0.62 0.11 60);
+  --abyss: oklch(0.15 0.03 264);
 
   /* Deep navy */
   --navy: oklch(0.24 0.07 262);
@@ -196,6 +201,20 @@
   background-image: var(--gradient-brand);
   background-clip: text;
   color: transparent;
+}
+
+@utility text-gradient-cyan-bronze {
+  background-image: linear-gradient(90deg, var(--cyan), var(--bronze));
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-glow-cyan {
+  background-image: radial-gradient(circle at 50% 0%, oklch(0.75 0.13 205 / 0.14) 0%, transparent 55%);
+}
+
+@utility shadow-glow-cyan {
+  box-shadow: 0 0 28px oklch(0.75 0.13 205 / 0.35);
 }
 
 @keyframes reveal-up {
