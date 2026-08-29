@@ -2,12 +2,15 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   BadgeCheck,
+  Check,
   Clock3,
   CreditCard,
   Globe,
   Headphones,
   Layers,
+  Mail,
   MonitorSmartphone,
+  Phone,
   ShieldCheck,
   Store,
   Wallet,
@@ -15,13 +18,14 @@ import {
 } from "lucide-react";
 import heroImage from "@/assets/hero-fintech.jpg";
 import { Button } from "@/components/ui/button";
-import { Section, SectionHeading } from "@/components/site/Section";
-import { FeatureCard, StatCard, StepCard } from "@/components/site/Cards";
-import { TestimonialCarousel } from "@/components/site/Testimonials";
-import { LogoStrip } from "@/components/site/LogoStrip";
-import { CTABanner } from "@/components/site/CTABanner";
-import { Faq } from "@/components/site/Faq";
-import { BLOG_POSTS } from "@/lib/site";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { BLOG_POSTS, COMPANY, TESTIMONIALS } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 const INDUSTRIES = [
   { name: "Retail & Fashion", detail: "Variant-level stock, seasonal pricing and store credit across every branch." },
@@ -58,25 +62,14 @@ const HOME_FAQS = [
   },
 ];
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Fastpay IT Solution Ltd | Payment Gateway, POS & Websites" },
-      {
-        name: "description",
-        content:
-          "Payment gateway integration, smart POS systems and custom website development from Fastpay IT Solution Ltd. Secure, fast to launch and supported 24/7.",
-      },
-      { property: "og:title", content: "Fastpay IT Solution Ltd | Your Complete IT & Payment Partner" },
-      {
-        property: "og:description",
-        content:
-          "Payment gateway, POS systems and website development for growing businesses. Talk to Fastpay today.",
-      },
-    ],
-  }),
-  component: Home,
-});
+const PARTNERS = [
+  "NorthBay Retail",
+  "Bengal Mart",
+  "Riverside Grill",
+  "Tanvir Trading",
+  "MediCare Plus",
+  "UrbanFit Studios",
+];
 
 const SERVICES = [
   {
@@ -85,6 +78,7 @@ const SERVICES = [
     description:
       "Accept cards, mobile banking and wallets through one secure API, with next-day settlement and a real-time merchant dashboard.",
     to: "/payment-gateway",
+    bronze: false,
   },
   {
     icon: Store,
@@ -92,6 +86,7 @@ const SERVICES = [
     description:
       "Cloud POS for retail, restaurants and pharmacies — inventory, multi-branch reporting, barcode scanning and full offline mode.",
     to: "/pos-system",
+    bronze: true,
   },
   {
     icon: MonitorSmartphone,
@@ -99,6 +94,7 @@ const SERVICES = [
     description:
       "Business sites, e-commerce stores, landing pages and web apps built to load fast, rank well and convert visitors into customers.",
     to: "/web-development",
+    bronze: false,
   },
 ] as const;
 
@@ -142,248 +138,501 @@ const STEPS = [
   { title: "Go Live", description: "You launch with monitoring, documentation and 24/7 support from day one." },
 ];
 
+const STATS = [
+  { value: "70+", label: "Businesses served" },
+  { value: "10,000+", label: "Transactions processed daily" },
+  { value: "99.9%", label: "Platform uptime" },
+  { value: "24/7", label: "Support coverage" },
+];
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Fastpay IT Solution Ltd | Payment Gateway, POS & Websites" },
+      {
+        name: "description",
+        content:
+          "Payment gateway integration, smart POS systems and custom website development from Fastpay IT Solution Ltd. Secure, fast to launch and supported 24/7.",
+      },
+      { property: "og:title", content: "Fastpay IT Solution Ltd | Your Complete IT & Payment Partner" },
+      {
+        property: "og:description",
+        content:
+          "Payment gateway, POS systems and website development for growing businesses. Talk to Fastpay today.",
+      },
+    ],
+  }),
+  component: Home,
+});
+
 function Home() {
   return (
-    <>
+    <div className="bg-abyss text-navy-foreground">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-hero px-6 py-20 text-navy-foreground md:py-28">
+      <section className="relative overflow-hidden px-6 pt-20 pb-16 text-center md:pt-28">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-glow-cyan" />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -top-40 -left-32 size-[28rem] rounded-full bg-primary/25 blur-3xl"
+          className="pointer-events-none absolute -top-32 left-1/2 size-[30rem] -translate-x-1/2 rounded-full bg-primary/20 blur-3xl"
         />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
-          <div className="reveal">
-            <span className="inline-flex items-center gap-2 rounded-full bg-navy-foreground/10 px-3 py-1 text-xs font-semibold tracking-wider text-cyan uppercase">
-              <BadgeCheck className="size-3.5" aria-hidden="true" />
+        <div className="relative mx-auto max-w-4xl reveal">
+          <span className="inline-flex items-center gap-2 rounded-full border border-navy-foreground/10 bg-navy-foreground/5 px-4 py-2 backdrop-blur-sm">
+            <span className="size-2 animate-pulse rounded-full bg-cyan" aria-hidden="true" />
+            <span className="text-xs font-medium tracking-widest text-navy-muted uppercase">
               Your Complete IT &amp; Payment Partner
             </span>
-            <h1 className="mt-6 text-4xl leading-[1.1] font-extrabold md:text-6xl">
-              Complete IT &amp; Payment Solutions for Your Business
-            </h1>
-            <p className="mt-6 max-w-xl text-lg text-navy-muted">
-              Fastpay IT Solution Ltd delivers payment gateway integration, smart POS systems and
-              custom website development — one partner, one team, from first consultation to
-              long-term support.
-            </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Button asChild variant="hero" size="xl">
-                <Link to="/contact">
-                  Get Started <ArrowRight className="size-4" aria-hidden="true" />
-                </Link>
-              </Button>
-              <Button asChild variant="heroOutline" size="xl">
-                <Link to="/pricing">Explore Services</Link>
-              </Button>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-navy-muted">
-              <span className="flex items-center gap-2">
-                <ShieldCheck className="size-4 text-cyan" aria-hidden="true" /> PCI DSS aligned
-              </span>
-              <span className="flex items-center gap-2">
-                <Clock3 className="size-4 text-cyan" aria-hidden="true" /> Live in under a week
-              </span>
-              <span className="flex items-center gap-2">
-                <Headphones className="size-4 text-cyan" aria-hidden="true" /> 24/7 support
-              </span>
-            </div>
+          </span>
+          <h1 className="mt-8 text-4xl leading-[1.1] font-extrabold tracking-tight md:text-6xl">
+            Complete IT &amp; <span className="text-gradient-cyan-bronze">Payment Solutions</span>
+            <br className="hidden md:block" /> for Your Business
+          </h1>
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-navy-muted">
+            Fastpay IT Solution Ltd delivers payment gateway integration, smart POS systems and
+            custom website development — one partner, one team, from first consultation to
+            long-term support.
+          </p>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button asChild size="xl" className="bg-cyan font-bold text-navy-deep shadow-glow-cyan hover:bg-navy-foreground">
+              <Link to="/contact">
+                Get Started <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="xl"
+              variant="outline"
+              className="border-navy-foreground/20 bg-transparent font-bold text-navy-foreground hover:bg-navy-foreground/5 hover:text-navy-foreground"
+            >
+              <Link to="/pricing">Explore Services</Link>
+            </Button>
           </div>
-          <div className="relative">
+          <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-navy-muted">
+            <span className="flex items-center gap-2">
+              <ShieldCheck className="size-4 text-cyan" aria-hidden="true" /> PCI DSS aligned
+            </span>
+            <span className="flex items-center gap-2">
+              <Clock3 className="size-4 text-cyan" aria-hidden="true" /> Live in under a week
+            </span>
+            <span className="flex items-center gap-2">
+              <Headphones className="size-4 text-cyan" aria-hidden="true" /> 24/7 support
+            </span>
+          </div>
+        </div>
+        <div className="relative mx-auto mt-16 max-w-5xl">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 -z-0 rounded-[2rem] bg-cyan/10 blur-3xl"
+          />
+          <div className="relative rounded-[2rem] border border-navy-foreground/10 bg-navy/40 p-2 shadow-lift backdrop-blur-xl">
             <img
               src={heroImage}
               alt="Fastpay payment dashboard, mobile checkout screen and POS terminal"
               width={1280}
               height={1024}
-              className="w-full rounded-3xl border border-navy-foreground/10 shadow-lift"
+              className="w-full rounded-3xl"
             />
           </div>
         </div>
       </section>
 
-      <LogoStrip />
+      {/* Trusted by */}
+      <section className="border-y border-navy-foreground/5 px-6 py-12">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-center text-xs font-medium tracking-[0.2em] text-navy-muted/70 uppercase">
+            Trusted by 70+ businesses across retail, food and e-commerce
+          </p>
+          <div className="mt-8 grid grid-cols-2 items-center gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            {PARTNERS.map((p) => (
+              <div
+                key={p}
+                className="rounded-xl border border-navy-foreground/10 bg-navy-foreground/5 py-3 text-center font-display text-sm font-bold text-navy-muted transition-colors hover:border-cyan/40 hover:text-navy-foreground"
+              >
+                {p}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Core services */}
-      <Section>
-        <SectionHeading
+      <DarkSection>
+        <DarkHeading
           eyebrow="Our Core Services"
           title="Everything your business needs to sell and get paid"
           description="Three flagship services, plus the wider IT support that keeps them running smoothly."
         />
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-16 grid gap-8 md:grid-cols-3">
           {SERVICES.map((s) => (
-            <div key={s.to} className="flex flex-col">
-              <FeatureCard icon={s.icon} title={s.title} description={s.description} className="flex-1" />
+            <div
+              key={s.to}
+              className={cn(
+                "group rounded-3xl border border-navy-foreground/10 bg-navy/50 p-8 transition-all duration-500 hover:-translate-y-2",
+                s.bronze ? "hover:border-bronze/50" : "hover:border-cyan/50",
+              )}
+            >
+              <span
+                className={cn(
+                  "flex size-14 items-center justify-center rounded-2xl border",
+                  s.bronze
+                    ? "border-bronze/30 bg-gradient-to-br from-bronze/20 to-bronze/5 text-bronze"
+                    : "border-cyan/30 bg-gradient-to-br from-cyan/20 to-cyan/5 text-cyan",
+                )}
+              >
+                <s.icon className="size-7" aria-hidden="true" />
+              </span>
+              <h3 className="mt-6 text-xl font-bold text-navy-foreground">{s.title}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-navy-muted">{s.description}</p>
               <Link
                 to={s.to}
-                className="mt-3 inline-flex items-center gap-1.5 px-1 text-sm font-semibold text-primary hover:gap-2.5 transition-all"
+                className={cn(
+                  "mt-6 inline-flex items-center gap-1.5 text-sm font-semibold transition-all group-hover:gap-2.5",
+                  s.bronze ? "text-bronze" : "text-cyan",
+                )}
               >
                 Learn More <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
             </div>
           ))}
         </div>
-      </Section>
+      </DarkSection>
 
       {/* Why choose */}
-      <Section tone="soft">
-        <SectionHeading
+      <DarkSection className="border-t border-navy-foreground/5">
+        <DarkHeading
           eyebrow="Why Choose Fastpay"
           title="Built for businesses that can't afford downtime"
           description="We combine fintech-grade reliability with the responsiveness of a local partner."
         />
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {BENEFITS.map((b) => (
-            <FeatureCard key={b.title} {...b} />
+            <div
+              key={b.title}
+              className="group rounded-2xl border border-navy-foreground/10 bg-navy-foreground/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan/40"
+            >
+              <span className="flex size-11 items-center justify-center rounded-xl bg-cyan/10 text-cyan transition-colors group-hover:bg-cyan group-hover:text-navy-deep">
+                <b.icon className="size-5" aria-hidden="true" />
+              </span>
+              <h3 className="mt-4 text-lg font-bold text-navy-foreground">{b.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-navy-muted">{b.description}</p>
+            </div>
           ))}
         </div>
-      </Section>
+      </DarkSection>
 
       {/* Stats */}
-      <Section tone="navy">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <StatCard value="70+" label="Businesses served" />
-          <StatCard value="10,000+" label="Transactions processed daily" />
-          <StatCard value="99.9%" label="Platform uptime" />
-          <StatCard value="24/7" label="Support coverage" />
+      <section className="border-y border-navy-foreground/5 bg-navy/40 px-6 py-16">
+        <div className="mx-auto grid max-w-7xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {STATS.map((s) => (
+            <div
+              key={s.label}
+              className="rounded-2xl border border-navy-foreground/10 bg-navy-foreground/5 p-6 text-center backdrop-blur-sm"
+            >
+              <p className="font-display text-3xl font-extrabold text-gradient-cyan-bronze md:text-4xl">
+                {s.value}
+              </p>
+              <p className="mt-2 text-sm text-navy-muted">{s.label}</p>
+            </div>
+          ))}
         </div>
-      </Section>
+      </section>
 
       {/* How it works */}
-      <Section>
-        <SectionHeading
+      <DarkSection>
+        <DarkHeading
           eyebrow="How It Works"
           title="From first call to going live in four clear steps"
           description="No surprises, no hidden phases — you always know exactly where your project stands."
         />
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s, i) => (
-            <StepCard key={s.title} step={i + 1} {...s} />
+            <div
+              key={s.title}
+              className="relative rounded-2xl border border-navy-foreground/10 bg-navy/50 p-6"
+            >
+              <span className="flex size-10 items-center justify-center rounded-full bg-gradient-brand font-display text-sm font-bold text-primary-foreground">
+                {i + 1}
+              </span>
+              <h3 className="mt-4 text-lg font-bold text-navy-foreground">{s.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-navy-muted">{s.description}</p>
+            </div>
           ))}
         </div>
-      </Section>
+      </DarkSection>
 
       {/* Testimonials */}
-      <Section tone="soft">
-        <SectionHeading
+      <DarkSection className="border-t border-navy-foreground/5">
+        <DarkHeading
           eyebrow="Client Reviews"
           title="What our clients say"
           description="Retailers, restaurants and online sellers who run their daily operations on Fastpay."
         />
-        <TestimonialCarousel />
-      </Section>
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
+          {TESTIMONIALS.slice(0, 3).map((t) => (
+            <figure
+              key={t.name}
+              className="flex h-full flex-col rounded-2xl border border-navy-foreground/10 bg-navy/50 p-6"
+            >
+              <blockquote className="flex-1 text-sm leading-relaxed text-navy-foreground/90">
+                “{t.quote}”
+              </blockquote>
+              <figcaption className="mt-5 flex items-center gap-3 border-t border-navy-foreground/10 pt-4">
+                <span className="flex size-10 items-center justify-center rounded-full bg-gradient-brand font-display text-sm font-bold text-primary-foreground">
+                  {t.name.charAt(0)}
+                </span>
+                <span>
+                  <span className="block text-sm font-semibold text-navy-foreground">{t.name}</span>
+                  <span className="block text-xs text-navy-muted">{t.role}</span>
+                </span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </DarkSection>
 
       {/* Pricing preview */}
-      <Section>
-        <SectionHeading
-          eyebrow="Pricing"
-          title="Straightforward pricing, flexible terms"
-          description="Rent or buy — whichever fits your cash flow. Custom quotes available for every service."
-        />
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          <PricePreview
-            icon={CreditCard}
-            title="Payment Gateway"
-            price="Negotiable"
-            note="Rent or one-time purchase, priced on transaction volume and integration scope."
+      <DarkSection>
+        <div className="rounded-[2.5rem] border border-navy-foreground/5 bg-navy/30 p-8 shadow-lift md:p-12">
+          <DarkHeading
+            eyebrow="Pricing"
+            title="Straightforward pricing, flexible terms"
+            description="Rent or buy — whichever fits your cash flow. Custom quotes available for every service."
           />
-          <PricePreview
-            icon={Store}
-            title="POS System"
-            price="৳4,000 / month"
-            secondary="or ৳120,000 one-time"
-            note="Software, updates and support included. Annual service charge negotiable."
-            featured
-          />
-          <PricePreview
-            icon={MonitorSmartphone}
-            title="Website Development"
-            price="Negotiable"
-            note="Priced on website type, number of pages and the features you need."
-          />
+          <div className="mt-16 grid gap-8 md:grid-cols-3">
+            <PricePreview
+              icon={CreditCard}
+              title="Payment Gateway"
+              price="Negotiable"
+              note="Rent or one-time purchase, priced on transaction volume and integration scope."
+              points={["Cards, wallets & mobile banking", "Next-day settlement", "Real-time dashboard"]}
+            />
+            <PricePreview
+              icon={Store}
+              title="POS System"
+              price="৳4,000"
+              suffix="/ month"
+              secondary="or ৳120,000 one-time"
+              note="Software, updates and support included. Annual service charge negotiable."
+              points={["Hardware + cloud software", "Offline mode included", "Multi-branch reporting"]}
+              featured
+            />
+            <PricePreview
+              icon={MonitorSmartphone}
+              title="Website Development"
+              price="Negotiable"
+              note="Priced on website type, number of pages and the features you need."
+              points={["Business sites & e-commerce", "SEO-ready, fast loading", "1 year support included"]}
+            />
+          </div>
+          <div className="mt-12 text-center">
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-cyan/40 bg-transparent font-semibold text-cyan hover:bg-cyan/10 hover:text-cyan"
+            >
+              <Link to="/pricing">
+                View Full Pricing <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </Button>
+          </div>
         </div>
-        <div className="mt-10 text-center">
-          <Button asChild variant="outlineBrand" size="lg">
-            <Link to="/pricing">
-              View Full Pricing <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
-          </Button>
-        </div>
-      </Section>
+      </DarkSection>
 
       {/* Blog preview */}
-      <Section tone="soft">
-        <SectionHeading
-          eyebrow="Insights"
-          title="Latest from the Fastpay blog"
-          description="Practical guidance on payments, retail operations and building for the web."
-        />
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {BLOG_POSTS.slice(0, 3).map((post) => (
-            <article
-              key={post.slug}
-              className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift"
-            >
-              <div className="h-36 bg-gradient-hero" aria-hidden="true" />
-              <div className="flex flex-1 flex-col p-6">
-                <span className="text-xs font-semibold tracking-wider text-primary uppercase">
-                  {post.category}
-                </span>
-                <h3 className="mt-2 text-lg leading-snug font-bold">{post.title}</h3>
-                <p className="mt-2 flex-1 text-sm text-muted-foreground">{post.excerpt}</p>
-                <p className="mt-4 text-xs text-muted-foreground">
-                  {post.date} · {post.readTime}
-                </p>
+      <DarkSection className="border-t border-navy-foreground/5">
+        <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <DarkHeading
+            align="left"
+            eyebrow="Insights"
+            title="Latest from the Fastpay blog"
+            description="Practical guidance on payments, retail operations and building for the web."
+          />
+          <Link
+            to="/blog"
+            className="shrink-0 border-b border-cyan/30 pb-1 text-sm font-semibold text-cyan transition-colors hover:border-cyan"
+          >
+            View All Posts
+          </Link>
+        </div>
+        <div className="mt-12 grid gap-8 md:grid-cols-3">
+          {BLOG_POSTS.slice(0, 3).map((post, i) => (
+            <article key={post.slug} className="group cursor-pointer">
+              <div
+                className={cn(
+                  "mb-6 aspect-[16/9] overflow-hidden rounded-2xl border border-navy-foreground/10",
+                  i === 1 ? "bg-gradient-to-br from-navy to-bronze/20" : "bg-gradient-to-br from-navy to-cyan/20",
+                )}
+              >
+                <div className="size-full transition-transform duration-500 group-hover:scale-105" />
               </div>
+              <div className="flex items-center gap-3 text-xs font-bold tracking-wider uppercase">
+                <span className={i === 1 ? "text-bronze" : "text-cyan"}>{post.category}</span>
+                <span className="size-1 rounded-full bg-navy-foreground/20" aria-hidden="true" />
+                <span className="text-navy-muted/70">{post.readTime}</span>
+              </div>
+              <h3
+                className={cn(
+                  "mt-3 text-xl leading-tight font-bold text-navy-foreground transition-colors",
+                  i === 1 ? "group-hover:text-bronze" : "group-hover:text-cyan",
+                )}
+              >
+                {post.title}
+              </h3>
+              <p className="mt-2 text-sm text-navy-muted">{post.excerpt}</p>
             </article>
           ))}
         </div>
-        <div className="mt-10 text-center">
-          <Button asChild variant="outlineBrand" size="lg">
-            <Link to="/blog">Read the Blog</Link>
-          </Button>
-        </div>
-      </Section>
+      </DarkSection>
 
-      <Section>
-        <SectionHeading
+      {/* Industries */}
+      <DarkSection className="border-t border-navy-foreground/5">
+        <DarkHeading
           eyebrow="Industries"
           title="Who we work with every day"
           description="Different counters, different rules. We configure the same platform around how each sector actually trades."
         />
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {INDUSTRIES.map((i) => (
-            <div key={i.name} className="rounded-2xl border border-border bg-card p-6 shadow-card">
-              <h3 className="text-base font-bold">{i.name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{i.detail}</p>
+            <div
+              key={i.name}
+              className="rounded-2xl border border-navy-foreground/10 bg-navy/50 p-6 transition-colors hover:border-cyan/40"
+            >
+              <h3 className="text-base font-bold text-navy-foreground">{i.name}</h3>
+              <p className="mt-2 text-sm text-navy-muted">{i.detail}</p>
             </div>
           ))}
         </div>
-      </Section>
+      </DarkSection>
 
-      <Section tone="soft">
-        <SectionHeading
+      {/* Assurances */}
+      <DarkSection className="border-t border-navy-foreground/5">
+        <DarkHeading
           eyebrow="Assurance"
           title="Commitments we put in writing"
           description="Every engagement is covered by a signed service agreement — these are the terms inside it."
         />
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {ASSURANCES.map((a) => (
-            <div key={a.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
-              <p className="font-display text-2xl font-extrabold text-primary">{a.metric}</p>
-              <h3 className="mt-2 text-base font-bold">{a.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{a.detail}</p>
+            <div
+              key={a.title}
+              className="rounded-2xl border border-navy-foreground/10 bg-navy-foreground/5 p-6"
+            >
+              <p className="font-display text-2xl font-extrabold text-cyan">{a.metric}</p>
+              <h3 className="mt-2 text-base font-bold text-navy-foreground">{a.title}</h3>
+              <p className="mt-2 text-sm text-navy-muted">{a.detail}</p>
             </div>
           ))}
         </div>
-      </Section>
+      </DarkSection>
 
-      <Section>
-        <SectionHeading eyebrow="FAQ" title="Common questions" />
-        <Faq items={HOME_FAQS} />
-      </Section>
+      {/* FAQ */}
+      <DarkSection className="border-t border-navy-foreground/5">
+        <DarkHeading eyebrow="FAQ" title="Common questions" />
+        <Accordion type="single" collapsible className="mx-auto mt-10 w-full max-w-3xl">
+          {HOME_FAQS.map((item, i) => (
+            <AccordionItem
+              key={item.q}
+              value={`item-${i}`}
+              className="mb-3 rounded-2xl border border-navy-foreground/10 bg-navy/50 px-5"
+            >
+              <AccordionTrigger className="text-left text-base font-semibold text-navy-foreground hover:no-underline">
+                {item.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-sm leading-relaxed text-navy-muted">
+                {item.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </DarkSection>
 
+      {/* CTA */}
+      <section className="px-6 py-20">
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-cyan/20 bg-gradient-hero px-8 py-14 text-center shadow-lift md:px-16">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-glow-cyan" />
+          <div className="relative">
+            <h2 className="text-3xl font-extrabold md:text-4xl">
+              Ready to grow your business with Fastpay?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-navy-muted">
+              Talk to our team today about payment gateway integration, a POS rollout, or a new
+              website. We reply within one business day.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <Button asChild size="xl" className="bg-cyan font-bold text-navy-deep shadow-glow-cyan hover:bg-navy-foreground">
+                <Link to="/contact">Contact Us</Link>
+              </Button>
+              <Button
+                asChild
+                size="xl"
+                variant="outline"
+                className="border-navy-foreground/20 bg-transparent font-bold text-navy-foreground hover:bg-navy-foreground/5 hover:text-navy-foreground"
+              >
+                <a href={COMPANY.phoneHref}>
+                  <Phone className="size-4" aria-hidden="true" />
+                  {COMPANY.phone}
+                </a>
+              </Button>
+              <Button
+                asChild
+                size="xl"
+                variant="outline"
+                className="border-navy-foreground/20 bg-transparent font-bold text-navy-foreground hover:bg-navy-foreground/5 hover:text-navy-foreground"
+              >
+                <a href={COMPANY.emailHref}>
+                  <Mail className="size-4" aria-hidden="true" />
+                  {COMPANY.email}
+                </a>
+              </Button>
+            </div>
+            <p className="mt-6 flex items-center justify-center gap-2 text-xs text-navy-muted">
+              <BadgeCheck className="size-3.5 text-cyan" aria-hidden="true" />
+              Free 30-minute consultation — no obligation
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
 
-      <CTABanner />
-    </>
+function DarkSection({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <section className={cn("px-6 py-20 md:py-24", className)}>
+      <div className="mx-auto max-w-7xl">{children}</div>
+    </section>
+  );
+}
+
+function DarkHeading({
+  eyebrow,
+  title,
+  description,
+  align = "center",
+}: {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  align?: "center" | "left";
+}) {
+  return (
+    <div className={cn("max-w-2xl", align === "center" && "mx-auto text-center")}>
+      {eyebrow && (
+        <span className="inline-block rounded-full border border-cyan/20 bg-cyan/10 px-3 py-1 text-xs font-semibold tracking-wider text-cyan uppercase">
+          {eyebrow}
+        </span>
+      )}
+      <h2 className="mt-4 font-display text-3xl font-extrabold text-navy-foreground md:text-4xl">
+        {title}
+      </h2>
+      {description && <p className="mt-4 text-base text-navy-muted">{description}</p>}
+    </div>
   );
 }
 
@@ -391,32 +640,70 @@ function PricePreview({
   icon: Icon,
   title,
   price,
+  suffix,
   secondary,
   note,
+  points,
   featured = false,
 }: {
   icon: typeof CreditCard;
   title: string;
   price: string;
+  suffix?: string;
   secondary?: string;
   note: string;
+  points: string[];
   featured?: boolean;
 }) {
   return (
     <div
-      className={
+      className={cn(
+        "relative flex flex-col rounded-2xl p-8",
         featured
-          ? "rounded-2xl border-2 border-primary bg-card p-7 shadow-glow"
-          : "rounded-2xl border border-border bg-card p-7 shadow-card"
-      }
+          ? "border-2 border-cyan bg-gradient-to-b from-navy to-abyss shadow-glow-cyan"
+          : "border border-navy-foreground/10 bg-navy-foreground/5",
+      )}
     >
-      <span className="flex size-11 items-center justify-center rounded-xl bg-gradient-brand text-primary-foreground">
+      {featured && (
+        <span className="absolute top-0 right-0 rounded-bl-lg rounded-tr-xl bg-cyan px-4 py-1 text-[10px] font-bold tracking-tighter text-navy-deep uppercase">
+          Popular
+        </span>
+      )}
+      <span
+        className={cn(
+          "flex size-11 items-center justify-center rounded-xl",
+          featured ? "bg-cyan text-navy-deep" : "bg-cyan/10 text-cyan",
+        )}
+      >
         <Icon className="size-5" aria-hidden="true" />
       </span>
-      <h3 className="mt-4 text-lg font-bold">{title}</h3>
-      <p className="mt-3 font-display text-3xl font-extrabold text-primary">{price}</p>
-      {secondary && <p className="text-sm text-muted-foreground">{secondary}</p>}
-      <p className="mt-3 text-sm text-muted-foreground">{note}</p>
+      <h3 className="mt-4 text-lg font-bold text-navy-foreground">{title}</h3>
+      <p className="mt-3 font-display text-4xl font-extrabold text-navy-foreground">
+        {price}
+        {suffix && <span className="text-sm font-medium text-navy-muted"> {suffix}</span>}
+      </p>
+      {secondary && <p className="text-sm text-navy-muted">{secondary}</p>}
+      <p className="mt-3 text-sm text-navy-muted">{note}</p>
+      <ul className="mt-6 flex-1 space-y-3">
+        {points.map((p) => (
+          <li key={p} className="flex items-center gap-3 text-sm text-navy-foreground/85">
+            <Check className="size-4 shrink-0 text-cyan" aria-hidden="true" />
+            {p}
+          </li>
+        ))}
+      </ul>
+      <Button
+        asChild
+        className={cn(
+          "mt-8 w-full font-bold",
+          featured
+            ? "bg-cyan text-navy-deep hover:bg-navy-foreground"
+            : "border border-navy-foreground/20 bg-transparent text-navy-foreground hover:bg-navy-foreground/10",
+        )}
+        variant={featured ? "default" : "outline"}
+      >
+        <Link to="/contact">{featured ? "Get the POS System" : "Request a Quote"}</Link>
+      </Button>
     </div>
   );
 }
