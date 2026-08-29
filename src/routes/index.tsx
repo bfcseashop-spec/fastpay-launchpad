@@ -455,6 +455,49 @@ function Home() {
         </div>
       </DarkSection>
 
+      {/* What we offer — full service grid */}
+      <DarkSection className="border-t border-navy-foreground/5">
+        <DarkHeading
+          eyebrow="What We Offer"
+          title="আমাদের সার্ভিসসমূহ"
+          description="আপনার বিজনেসকে ডিজিটাল যুগে এগিয়ে নিয়ে যেতে আমরা প্রতিটি ধাপে আপনার পাশে আছি।"
+        />
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {OFFERINGS.map((o) => (
+            <div
+              key={o.title}
+              className="group flex flex-col rounded-2xl border border-navy-foreground/10 bg-navy/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-emerald/40"
+            >
+              <span className="flex size-11 items-center justify-center rounded-xl border border-emerald/30 bg-gradient-to-br from-emerald/20 to-emerald/5 text-emerald transition-colors group-hover:bg-emerald group-hover:text-navy-deep">
+                <o.icon className="size-5" aria-hidden="true" />
+              </span>
+              <h3 className="mt-4 text-lg font-bold text-navy-foreground">{o.title}</h3>
+              <p className="mt-1 text-sm font-semibold text-bronze">{o.bangla}</p>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-navy-muted">{o.description}</p>
+              <Link
+                to={o.to}
+                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald transition-all group-hover:gap-2.5"
+              >
+                বিস্তারিত দেখুন <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </div>
+          ))}
+        </div>
+        <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-navy-foreground/10 bg-navy/60 p-8 backdrop-blur-xl">
+          <h3 className="text-center font-display text-xl font-bold text-navy-foreground">
+            🚀 কেন আমাদের বেছে নেবেন?
+          </h3>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+            {WHY_US_BN.map((item) => (
+              <li key={item} className="flex items-start gap-2.5 text-sm text-navy-muted">
+                <Check className="mt-0.5 size-4 shrink-0 text-emerald" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </DarkSection>
+
       {/* Why choose */}
       <DarkSection className="border-t border-navy-foreground/5">
         <DarkHeading
