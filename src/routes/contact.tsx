@@ -15,11 +15,10 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: seoMeta({
       title: "Contact Us | Fastpay IT Solution Ltd",
-      description:
-        "Call +880 1785-514425, email fastpay.tech@gmail.com or send us a message. Fastpay IT Solution Ltd replies within one business day.",
+      description: `Call ${COMPANY.phone}, email ${COMPANY.email} or send us a message. Fastpay IT Solution Ltd replies within one business day.`,
       ogTitle: "Contact Fastpay IT Solution Ltd",
       ogDescription:
-        "Talk to our Dhaka team about payment gateway, POS or website projects — phone, WhatsApp, email or the contact form.",
+        "Talk to our team about payment gateway, POS or website projects — phone, WhatsApp, email or the contact form.",
       path: "/contact",
       image: "/og-contact.jpg",
       imageWidth: 1280,
