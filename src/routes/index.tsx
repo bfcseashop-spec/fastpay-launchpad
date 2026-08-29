@@ -16,7 +16,7 @@ import {
   Wallet,
   Zap,
 } from "lucide-react";
-import heroImage from "@/assets/hero-fintech.jpg";
+import heroImage from "@/assets/hero-workspace.jpg";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -169,30 +169,31 @@ function Home() {
   return (
     <div className="bg-mesh-8 text-navy-foreground">
       {/* Hero */}
-      <section className="relative overflow-hidden px-6 pt-20 pb-16 text-center md:pt-28">
+      <section className="relative overflow-hidden px-6 pt-20 pb-10 text-center md:pt-24">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-glow-cyan" />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -top-32 left-1/2 size-[30rem] -translate-x-1/2 rounded-full bg-primary/20 blur-3xl"
+          className="pointer-events-none absolute -top-32 left-1/2 size-[30rem] -translate-x-1/2 rounded-full bg-emerald/15 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute top-40 -right-24 size-[24rem] rounded-full bg-primary/15 blur-3xl"
         />
         <div className="relative mx-auto max-w-4xl reveal">
-          <span className="inline-flex items-center gap-2 rounded-full border border-navy-foreground/10 bg-navy-foreground/5 px-4 py-2 backdrop-blur-sm">
-            <span className="size-2 animate-pulse rounded-full bg-cyan" aria-hidden="true" />
-            <span className="text-xs font-medium tracking-widest text-navy-muted uppercase">
-              Your Complete IT &amp; Payment Partner
-            </span>
-          </span>
-          <h1 className="mt-8 text-4xl leading-[1.1] font-extrabold tracking-tight md:text-6xl">
-            Complete IT &amp; <span className="text-gradient-cyan-bronze">Payment Solutions</span>
-            <br className="hidden md:block" /> for Your Business
+          <p className="font-serif text-2xl text-navy-muted italic md:text-3xl">
+            — Professional —
+          </p>
+          <h1 className="mt-4 text-5xl leading-[1.05] font-extrabold tracking-tight md:text-7xl">
+            <span className="text-gradient-gold">IT &amp; Payment</span>
+            <br />
+            Solutions
           </h1>
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-navy-muted">
-            Fastpay IT Solution Ltd delivers payment gateway integration, smart POS systems and
-            custom website development — one partner, one team, from first consultation to
-            long-term support.
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-navy-muted">
+            Payment gateway integration, smart POS systems and custom website development —
+            one modern platform for startups and growing companies across Bangladesh.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button asChild size="xl" className="bg-cyan font-bold text-navy-deep shadow-glow-cyan hover:bg-navy-foreground">
+            <Button asChild size="xl" className="bg-gradient-emerald font-bold text-navy-deep shadow-glow-emerald hover:opacity-90">
               <Link to="/contact">
                 Get Started <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
@@ -208,30 +209,81 @@ function Home() {
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-navy-muted">
             <span className="flex items-center gap-2">
-              <ShieldCheck className="size-4 text-cyan" aria-hidden="true" /> PCI DSS aligned
+              <ShieldCheck className="size-4 text-emerald" aria-hidden="true" /> PCI DSS aligned
             </span>
             <span className="flex items-center gap-2">
-              <Clock3 className="size-4 text-cyan" aria-hidden="true" /> Live in under a week
+              <Clock3 className="size-4 text-emerald" aria-hidden="true" /> Live in under a week
             </span>
             <span className="flex items-center gap-2">
-              <Headphones className="size-4 text-cyan" aria-hidden="true" /> 24/7 support
+              <Headphones className="size-4 text-emerald" aria-hidden="true" /> 24/7 support
             </span>
           </div>
         </div>
+
+        {/* Hero visual with floating service cards */}
         <div className="relative mx-auto mt-16 max-w-5xl">
           <div
             aria-hidden="true"
-            className="absolute inset-0 -z-0 rounded-[2rem] bg-cyan/10 blur-3xl"
+            className="absolute inset-0 -z-0 rounded-[2rem] bg-emerald/10 blur-3xl"
           />
           <div className="relative rounded-[2rem] border border-navy-foreground/10 bg-navy/40 p-2 shadow-lift backdrop-blur-xl">
             <img
               src={heroImage}
-              alt="Fastpay payment dashboard, mobile checkout screen and POS terminal"
-              width={1280}
+              alt="Fastpay payment dashboard on a laptop with mobile payment app on a modern office desk"
+              width={1600}
               height={1024}
               className="w-full rounded-3xl"
             />
           </div>
+          <div className="relative z-10 mx-auto -mt-16 grid max-w-4xl grid-cols-2 gap-4 px-4 lg:grid-cols-4">
+            {[
+              { icon: CreditCard, label: "Payment Gateway", to: "/payment-gateway" },
+              { icon: Store, label: "POS System", to: "/pos-system" },
+              { icon: MonitorSmartphone, label: "Website Design", to: "/web-development" },
+              { icon: Headphones, label: "24/7 Support", to: "/contact" },
+            ].map((c) => (
+              <Link
+                key={c.label}
+                to={c.to}
+                className="group rounded-2xl border border-navy-foreground/10 bg-navy/70 p-4 text-center shadow-lift backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-emerald/40"
+              >
+                <span className="mx-auto flex size-10 items-center justify-center rounded-full bg-emerald/15 text-emerald transition-colors group-hover:bg-emerald group-hover:text-navy-deep">
+                  <c.icon className="size-5" aria-hidden="true" />
+                </span>
+                <span className="mt-3 block text-sm font-semibold text-navy-foreground">
+                  {c.label}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Stats bar */}
+        <div className="relative mx-auto mt-14 max-w-4xl">
+          <div className="flex flex-col items-center justify-between gap-6 rounded-2xl border border-navy-foreground/10 bg-navy/60 px-8 py-6 shadow-lift backdrop-blur-xl sm:flex-row">
+            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+              <div className="text-center">
+                <p className="font-display text-3xl font-extrabold text-emerald">70+</p>
+                <p className="text-xs tracking-wide text-navy-muted uppercase">Businesses Served</p>
+              </div>
+              <div className="text-center">
+                <p className="font-display text-3xl font-extrabold text-bronze">98%</p>
+                <p className="text-xs tracking-wide text-navy-muted uppercase">Client Satisfaction</p>
+              </div>
+              <div className="text-center">
+                <p className="font-display text-3xl font-extrabold text-cyan">24/7</p>
+                <p className="text-xs tracking-wide text-navy-muted uppercase">Support</p>
+              </div>
+            </div>
+            <Button asChild className="bg-gradient-emerald font-bold text-navy-deep shadow-glow-emerald hover:opacity-90">
+              <Link to="/contact">
+                Get Free Quote <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </Button>
+          </div>
+          <p className="mt-8 text-sm font-medium tracking-[0.25em] text-navy-muted/80 uppercase">
+            Modern • Fast • Secure • Scalable
+          </p>
         </div>
       </section>
 
