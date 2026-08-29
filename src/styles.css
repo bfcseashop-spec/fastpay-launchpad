@@ -84,6 +84,7 @@
   /* Logo bronze + abyss page base (home redesign) */
   --bronze: oklch(0.62 0.11 60);
   --abyss: oklch(0.15 0.03 264);
+  --emerald: oklch(0.72 0.18 158);
 
   /* Deep navy */
   --navy: oklch(0.24 0.07 262);
@@ -212,6 +213,20 @@
 
 @utility bg-glow-cyan {
   background-image: radial-gradient(circle at 50% 0%, oklch(0.75 0.13 205 / 0.14) 0%, transparent 55%);
+}
+
+@utility bg-gradient-emerald {
+  background-image: linear-gradient(135deg, var(--emerald), oklch(0.6 0.15 175));
+}
+
+@utility shadow-glow-emerald {
+  box-shadow: 0 0 28px oklch(0.72 0.18 158 / 0.35);
+}
+
+@utility text-gradient-gold {
+  background-image: linear-gradient(90deg, oklch(0.78 0.14 85), oklch(0.7 0.15 70));
+  background-clip: text;
+  color: transparent;
 }
 
 /* 8-color mesh background — layered color blooms over a deep navy base */
