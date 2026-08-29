@@ -305,7 +305,7 @@ function PaymentGateway() {
               key={tier.name}
               className={`relative rounded-3xl border p-8 shadow-lift transition-all hover:-translate-y-1 ${
                 tier.highlight
-                  ? "border-emerald/40 bg-gradient-to-b from-navy/80 to-navy/50"
+                  ? "border-emerald/40 bg-gradient-to-b from-navy to-navy-deep text-navy-foreground"
                   : "border-border bg-card"
               }`}
             >
@@ -315,13 +315,20 @@ function PaymentGateway() {
                 </span>
               )}
               <div className="flex items-end gap-2">
-                <p className="text-4xl font-extrabold tracking-tight">{tier.price}</p>
-                <p className="text-sm text-muted-foreground">{tier.period}</p>
+                <p className={`text-4xl font-extrabold tracking-tight ${tier.highlight ? "text-emerald" : ""}`}>
+                  {tier.price}
+                </p>
+                <p className={`text-sm ${tier.highlight ? "text-navy-muted" : "text-muted-foreground"}`}>
+                  {tier.period}
+                </p>
               </div>
               <h3 className="mt-2 text-xl font-bold">{tier.name}</h3>
               <ul className="mt-6 space-y-3">
                 {tier.features.map((f) => (
-                  <li key={f} className="flex gap-3 text-sm text-muted-foreground">
+                  <li
+                    key={f}
+                    className={`flex gap-3 text-sm ${tier.highlight ? "text-navy-muted" : "text-muted-foreground"}`}
+                  >
                     <Check className="mt-0.5 size-4 shrink-0 text-emerald" aria-hidden="true" />
                     <span>{f}</span>
                   </li>
