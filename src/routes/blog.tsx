@@ -1,3 +1,4 @@
+import { canonical, seoMeta } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CalendarDays, Clock } from "lucide-react";
 import { PageHero, Section } from "@/components/site/Section";
@@ -6,19 +7,20 @@ import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
-    meta: [
-      { title: "Blog & Insights | Fastpay IT Solution Ltd" },
-      {
-        name: "description",
-        content:
-          "Practical articles on payment gateways, POS operations, e-commerce and web performance from the Fastpay IT Solution Ltd team.",
-      },
-      { property: "og:title", content: "Blog & Insights | Fastpay IT Solution Ltd" },
-      {
-        property: "og:description",
-        content: "Guidance on payments, retail technology and building fast, high-converting websites.",
-      },
-    ],
+    meta: seoMeta({
+      title: "Blog & Insights | Fastpay IT Solution Ltd",
+      description:
+        "Practical articles on payment gateways, POS operations, e-commerce and web performance from the Fastpay IT Solution Ltd team.",
+      ogTitle: "Payments, POS & Web Insights from Fastpay",
+      ogDescription:
+        "Guidance on payments, retail technology and building fast, high-converting websites — written for business owners.",
+      path: "/blog",
+      image: "/og-blog.jpg",
+      imageWidth: 1200,
+      imageHeight: 800,
+      imageAlt: "Fastpay team working on web and payment projects in the studio",
+    }),
+    links: canonical("/blog"),
   }),
   component: Blog,
 });

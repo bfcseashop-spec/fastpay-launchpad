@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { canonical, seoMeta } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { Clock, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
 import { toast } from "sonner";
@@ -12,19 +13,20 @@ import { COMPANY } from "@/lib/site";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
-    meta: [
-      { title: "Contact Us | Fastpay IT Solution Ltd" },
-      {
-        name: "description",
-        content:
-          "Call +880 1785-514425, email fastpay.tech@gmail.com or send us a message. Fastpay IT Solution Ltd replies within one business day.",
-      },
-      { property: "og:title", content: "Contact Fastpay IT Solution Ltd" },
-      {
-        property: "og:description",
-        content: "Talk to our team about payment gateway, POS or website projects.",
-      },
-    ],
+    meta: seoMeta({
+      title: "Contact Us | Fastpay IT Solution Ltd",
+      description:
+        "Call +880 1785-514425, email fastpay.tech@gmail.com or send us a message. Fastpay IT Solution Ltd replies within one business day.",
+      ogTitle: "Contact Fastpay IT Solution Ltd",
+      ogDescription:
+        "Talk to our Dhaka team about payment gateway, POS or website projects — phone, WhatsApp, email or the contact form.",
+      path: "/contact",
+      image: "/og-contact.jpg",
+      imageWidth: 1280,
+      imageHeight: 860,
+      imageAlt: "Merchant completing a payment with Fastpay support",
+    }),
+    links: canonical("/contact"),
   }),
   component: Contact,
 });

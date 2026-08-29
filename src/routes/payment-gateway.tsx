@@ -1,3 +1,4 @@
+import { canonical, seoMeta } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -27,22 +28,20 @@ import heroDashboard from "@/assets/hero-payment-dashboard.jpg";
 
 export const Route = createFileRoute("/payment-gateway")({
   head: () => ({
-    meta: [
-      { title: "Payment Gateway Integration | Fastpay IT Solution Ltd" },
-      {
-        name: "description",
-        content:
-          "Accept cards, mobile banking and wallets with Fastpay's secure payment gateway. Easy API integration, fraud protection and next-day settlement.",
-      },
-      { property: "og:title", content: "Payment Gateway Integration | Fastpay IT Solution Ltd" },
-      {
-        property: "og:description",
-        content:
-          "Secure payment gateway with instant settlement, fraud protection and developer-friendly APIs.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
+    meta: seoMeta({
+      title: "Payment Gateway Integration | Fastpay IT Solution Ltd",
+      description:
+        "Accept cards, bKash, Nagad, Rocket and bank transfers with Fastpay's secure payment gateway. Easy API integration, fraud protection and T+1 settlement.",
+      ogTitle: "Payment Gateway Integration for Bangladeshi Businesses",
+      ogDescription:
+        "Cards, mobile wallets and bank payments in one checkout — 99.95% uptime, fraud screening and next-business-day settlement.",
+      path: "/payment-gateway",
+      image: "/og-payment-gateway.jpg",
+      imageWidth: 1600,
+      imageHeight: 1024,
+      imageAlt: "Fastpay payment gateway dashboard showing live transactions",
+    }),
+    links: canonical("/payment-gateway"),
   }),
   component: PaymentGateway,
 });

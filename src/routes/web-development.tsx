@@ -1,3 +1,4 @@
+import { canonical, seoMeta } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Briefcase,
@@ -21,20 +22,20 @@ import responsiveImage from "@/assets/photo-web-responsive.jpg";
 
 export const Route = createFileRoute("/web-development")({
   head: () => ({
-    meta: [
-      { title: "Website Design & Development | Fastpay IT Solution Ltd" },
-      {
-        name: "description",
-        content:
-          "Custom business websites, e-commerce stores, landing pages and web apps built to load fast, rank well and convert. Free quote from Fastpay IT Solution Ltd.",
-      },
-      { property: "og:title", content: "Custom Websites That Convert | Fastpay IT Solution Ltd" },
-      {
-        property: "og:description",
-        content:
-          "Business sites, e-commerce, landing pages, web apps, UI/UX, SEO and maintenance from one team.",
-      },
-    ],
+    meta: seoMeta({
+      title: "Website Design & Development | Fastpay IT Solution Ltd",
+      description:
+        "Custom business websites, e-commerce stores, landing pages and web apps built to load fast, rank well and convert. Free quote from Fastpay IT Solution Ltd.",
+      ogTitle: "Custom Websites That Load Fast and Convert",
+      ogDescription:
+        "Business sites, e-commerce, landing pages, web apps, UI/UX, SEO and maintenance from one Dhaka-based team.",
+      path: "/web-development",
+      image: "/og-web-development.jpg",
+      imageWidth: 1280,
+      imageHeight: 860,
+      imageAlt: "Responsive Fastpay website design shown on laptop and mobile",
+    }),
+    links: canonical("/web-development"),
   }),
   component: WebDevelopment,
 });

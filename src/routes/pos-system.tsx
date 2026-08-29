@@ -1,3 +1,4 @@
+import { canonical, seoMeta } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   BarChart3,
@@ -23,20 +24,20 @@ import restaurantImage from "@/assets/photo-pos-restaurant.jpg";
 
 export const Route = createFileRoute("/pos-system")({
   head: () => ({
-    meta: [
-      { title: "Smart POS System for Retail & Restaurants | Fastpay IT Solution Ltd" },
-      {
-        name: "description",
-        content:
-          "Cloud POS with inventory, multi-branch reporting, offline mode and barcode scanning. Rent for ৳4,000/month or buy for ৳120,000.",
-      },
-      { property: "og:title", content: "Smart POS System | Fastpay IT Solution Ltd" },
-      {
-        property: "og:description",
-        content:
-          "Inventory, sales reporting, offline mode and staff management — POS built for retail, restaurants and pharmacies.",
-      },
-    ],
+    meta: seoMeta({
+      title: "Smart POS System for Retail & Restaurants | Fastpay IT Solution Ltd",
+      description:
+        "Cloud POS with inventory, multi-branch reporting, offline mode and barcode scanning. Rent for ৳4,000/month or buy for ৳120,000.",
+      ogTitle: "Smart Cloud POS for Retail, Restaurants & Pharmacies",
+      ogDescription:
+        "Inventory, sales reporting, offline mode and staff management. Rent ৳4,000/month or buy outright — installed and trained by our team.",
+      path: "/pos-system",
+      image: "/og-pos-system.jpg",
+      imageWidth: 1200,
+      imageHeight: 800,
+      imageAlt: "Shopkeeper using a Fastpay POS terminal at a retail counter",
+    }),
+    links: canonical("/pos-system"),
   }),
   component: PosSystem,
 });
